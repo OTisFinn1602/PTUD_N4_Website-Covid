@@ -1,0 +1,39 @@
+/* Root */
+
+:root {
+    --text-color: rgb(255, 68, 0);
+}
+
+
+/* Reset css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Header */
+
+.navbar {
+    box-shadow: 0px 1px 5px 2px rgb(255, 140, 50) !important;
+}
+
+
+/* Body */
+
+
+/* Đăng nhập */
+
+.Dangnhap {
+    margin: 10px;
+}
+
+.Dangnhap h4 {
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
