@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #E7ECF0;
+}
+
 
 /*---- Header ----*/
 
@@ -26,16 +30,12 @@
 
 /* Đăng nhập */
 
-.login {
+.pag-login {
     margin: 10px;
     padding: 0;
 }
 
-.login .left {
-    border-right: 1px solid black;
-}
-
-.login h4 {
+.pag-login h4 {
     color: var(--text-color);
     font-size: 24px;
     text-transform: uppercase;
@@ -43,15 +43,18 @@
     font-weight: bold;
 }
 
+.pag-login .form_login {
+    border-radius: 5px;
+    background-color: white;
+    background-image: linear-gradient(rgb(250, 171, 106), rgb(240, 234, 234));
+    box-shadow: 7px 7px 7px #888;
+}
+
 
 /*- Khai báo thông tin -*/
 
 
 /* attention */
-
-.info {
-    /* border: 1px solid; */
-}
 
 .attention p {
     text-align: center;
@@ -81,6 +84,29 @@ form .title-form {
     margin: 10px 0;
 }
 
-form button {
+form .KBYT {
     width: 100%;
+    padding: 7px 0 !important;
+}
+
+.form_login h4 {
+    width: 100% !important;
+    text-align: center !important;
+    background-color: coral;
+    padding: 10px 0;
+    color: white;
+}
+
+.form_login .attention {
+    margin-top: 10px;
+}
+
+.form_login .attention .text2 {
+    text-align: left;
+    padding: 5px 0;
+}
+
+.form_login .form-group,
+.attention {
+    padding: 0 10px;
 }
