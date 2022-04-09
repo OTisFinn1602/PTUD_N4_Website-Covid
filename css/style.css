@@ -15,6 +15,7 @@
 
 body {
     background-color: #E7ECF0;
+    /* position: relative; */
 }
 
 
@@ -32,7 +33,6 @@ body {
 
 .pag-login {
     margin: 10px;
-    padding: 0;
 }
 
 .pag-login h4 {
@@ -109,4 +109,20 @@ form .KBYT {
 .form_login .form-group,
 .attention {
     padding: 0 10px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+
+.text_login {
+    font-size: 20px;
+}
+
+.text_login:hover {
+    font-size: 20px;
+    color: blueviolet;
 }
