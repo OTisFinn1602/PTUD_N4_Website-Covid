@@ -10,12 +10,17 @@ include_once "View/V_Global/head.php";
     if(isset($_REQUEST['Login'])){
         include_once "View/V_Views/VDangNhap.php";
     }
+    elseif(isset($_REQUEST['KBYT'])){
+        include_once "View/V_Views/VKhaiBaoYTe.php";
+    }
+    elseif(isset($_REQUEST['spBN'])){
+        include_once "View/V_Views/VHoTroBenhNhan.php";
+    }
     else{
         include_once "View/V_Views/VTrangChu.php";
     }
     ?>
     <?php
-    // include_once "View/V_Views/VKhaiBaoYTe.php";
     ?>
     <?php
     include_once "View/V_Global/footer.php";

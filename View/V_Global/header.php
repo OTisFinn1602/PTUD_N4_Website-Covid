@@ -15,13 +15,13 @@
                                 <a href="index.php" class="nav-link">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">About</a>
+                                <a href="index.php?KBYT" class="nav-link">Khai báo y tế</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link">Services</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Team</a>
+                                <a href="index.php?spBN" class="nav-link">Chăm sóc bệnh nhân</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link">Connect</a>
