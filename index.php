@@ -16,6 +16,9 @@ include_once "View/V_Global/head.php";
     elseif(isset($_REQUEST['spBN'])){
         include_once "View/V_Views/VHoTroBenhNhan.php";
     }
+    elseif(isset($_REQUEST['khung'])){
+        include_once "View/V_Views/vTestKhung.php";
+    }
     else{
         include_once "View/V_Views/VTrangChu.php";
     }
