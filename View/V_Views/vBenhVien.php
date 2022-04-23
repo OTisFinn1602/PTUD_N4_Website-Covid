@@ -1,0 +1,1 @@
+chào bệnh viện

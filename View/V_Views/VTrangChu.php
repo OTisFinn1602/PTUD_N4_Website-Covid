@@ -38,11 +38,21 @@
             <span class="small">Support to receive and treat Covid-19 Patients</span> -->
         </h2>
         <div class="row col-12">
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
+            <div class="col p-2 m-2 bg-info" style="height: 100px;">
+            <a href="index.php?KBYT" class="nav-link text-white">Khai báo y tế</a>
+            </div>
+            <div class="col p-2 m-2 bg-info" style="height: 100px;">
+            <a href="index.php?search" class="nav-link text-white">Tìm kiếm</a>
+            </div>
+            <div class="col p-2 m-2 bg-info" style="height: 100px;">
+            <!-- <a href="index.php?QLBV" class="nav-link text-white">QuanLyBV</a> -->
+            </div>
+            <div class="col p-2 m-2 bg-info" style="height: 100px;">
+            <a href="index.php?YCTV" class="nav-link text-white">Yêu Cầu Tư Vấn</a>
+            </div>
+            <div class="col p-2 m-2 bg-info" style="height: 100px;">
+            <a href="index.php?XNYC" class="nav-link text-white">Xác nhận YC</a>
+            </div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>

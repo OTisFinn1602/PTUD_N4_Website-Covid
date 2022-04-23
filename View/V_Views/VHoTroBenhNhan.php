@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 100px;">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
         <div class="col-lg-12 left">
             <h4>Hỗ trợ chăm sóc bệnh nhân</h4>

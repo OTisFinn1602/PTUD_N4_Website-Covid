@@ -1,4 +1,4 @@
-<footer class="bg-dark text-center text-white" style="bottom: 0; width: 100%;">
+<footer class="bg-dark text-center text-white" style="bottom: 0; width: 100%; margin-top: 100px;">
     <div class="container-fluid p-4">
         <div class="row col-12">
             <div class="col-lg-6 text-left">

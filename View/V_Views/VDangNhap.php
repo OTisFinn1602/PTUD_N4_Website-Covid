@@ -1,22 +1,22 @@
 <?php
-if (isset($_REQUEST['submit'])) {
-    if (isset($_REQUEST['user']) && isset($_REQUEST['pass'])) {
-        if ($_REQUEST['user'] == "0398282162" && $_REQUEST['pass'] == "12345678") {
-            echo '<script>alert("Đăng nhập thành công");</script>';
-            echo header("refresh:0; url='index.php'");
-        } else {
-            echo '<script>alert("Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.");</script>';
-            echo header("refresh:0; url='index.php?Login'");
-        }
-    } else {
-        echo '<script>alert("Vui lòng nhập đủ thông tin.");</script>';
-        echo header("refresh:0; url='index.php?Login'");
-    }
-}
+// if (isset($_REQUEST['submit'])) {
+//     if ($_REQUEST['user'] != null && $_REQUEST['pass'] != null) {
+//         if ($_REQUEST['user'] == "0398282162" && $_REQUEST['pass'] == "12345678") {
+//             echo '<script>alert("Đăng nhập thành công");</script>';
+//             echo header("refresh:0; url='index.php'");
+//         } else {
+//             echo '<script>alert("Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại.");</script>';
+//             echo header("refresh:0; url='index.php?Login'");
+//         }
+//     } else {
+//         echo '<script>alert("Vui lòng nhập đủ thông tin.");</script>';
+//         echo header("refresh:0; url='index.php?Login'");
+//     }
+// }
 ?>
-<div class="container-fluid" style="height: 700px;">
+<div class="container-fluid" style="height: 700px; margin-top: 100px;">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
-        <form class="form_login" action="#" method="post">
+        <form class="form_login" action="DNWin.php" method="post">
             <h4>Đăng nhập hệ thống</h4>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
