@@ -24,6 +24,8 @@ include_once "View/V_Views/modules/comfig.php";
         include_once "View/V_Views/VTKBV.php";
     } elseif (isset($_REQUEST['UpTK'])) {
         include_once "View/V_Views/CapnhatTK.php";
+    } elseif (isset($_REQUEST['UpBV'])) {
+        include_once "View/V_Views/CapnhatBV.php";
     } elseif (isset($_REQUEST['YCCV'])) {
         include_once "View/V_Views/Xacnhanyccv.php";
     } elseif (isset($_REQUEST['YCTV'])) {
@@ -47,6 +49,8 @@ include_once "View/V_Views/modules/comfig.php";
 <script src="./css/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./Js/KBYT.js"></script>
 <script type="text/javascript" src="./Js/KBYT_NCT.js"></script>
+<script type="text/javascript" src="./Js/YCTV1.js"></script>
+<script type="text/javascript" src="./Js/yctvv.js"></script>
 <!-- Vendor js -->
 <script src="./css/assets/js/vendor.min.js"></script>
 

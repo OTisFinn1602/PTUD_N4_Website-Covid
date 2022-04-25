@@ -1,106 +1,97 @@
 <link rel="stylesheet" type="text/css" href="../../css/style.css">
 <script type="text/javascript">
-///////////////////////////////////////////////////////////////////////////////////////////////////
-var tinh_arr = new Array("TP Hồ Chí Minh");
-function print_tinh(tinh_id){
-    // given the id of the <select> tag as function argument, it inserts <option> tags
-    var option_str = document.getElementById(tinh_id);
-    option_str.length=0;
-    option_str.options[0] = new Option('Tỉnh,Thành phố','');
-    option_str.selectedIndex = 0;
-    for (var i=0; i<tinh_arr.length; i++) {
-        option_str.options[option_str.length] = new Option(tinh_arr[i],tinh_arr[i]);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    var tinh_arr = new Array("TP Hồ Chí Minh");
+
+    function print_tinh(tinh_id) {
+        // given the id of the <select> tag as function argument, it inserts <option> tags
+        var option_str = document.getElementById(tinh_id);
+        option_str.length = 0;
+        option_str.options[0] = new Option('Tỉnh,Thành phố', '');
+        option_str.selectedIndex = 0;
+        for (var i = 0; i < tinh_arr.length; i++) {
+            option_str.options[option_str.length] = new Option(tinh_arr[i], tinh_arr[i]);
+        }
     }
-}
 
-function print_quan(quan_id, quan_index){
-    var option_str = document.getElementById(quan_id);
-    option_str.length=0;
-    option_str.options[0] = new Option('Quận,Huyện','');
-    option_str.selectedIndex = 0;
-    var quan_arr = s_a[quan_index].split("|");
-    for (var i=0; i<quan_arr.length; i++) {
-        option_str.options[option_str.length] = new Option(quan_arr[i],quan_arr[i]);
+    function print_quan(quan_id, quan_index) {
+        var option_str = document.getElementById(quan_id);
+        option_str.length = 0;
+        option_str.options[0] = new Option('Quận,Huyện', '');
+        option_str.selectedIndex = 0;
+        var quan_arr = s_a[quan_index].split("|");
+        for (var i = 0; i < quan_arr.length; i++) {
+            option_str.options[option_str.length] = new Option(quan_arr[i], quan_arr[i]);
+        }
     }
-}
-//This function is incorrect, just to demonstrate, please help to correct this
+    //This function is incorrect, just to demonstrate, please help to correct this
 
-function print_phuong(phuong_id, phuong_index){
-    var option_str = document.getElementById(phuong_id);
-    option_str.length=0;
-    option_str.options[0] = new Option('Phường Xã','');
-    option_str.selectedIndex = 0;
-    var phuong_arr = s_b[phuong_index].split("|");
-    for (var i=0; i<phuong_arr.length; i++) {
-        option_str.options[option_str.length] = new Option(phuong_arr[i],phuong_arr[i]);
+    function print_phuong(phuong_id, phuong_index) {
+        var option_str = document.getElementById(phuong_id);
+        option_str.length = 0;
+        option_str.options[0] = new Option('Phường Xã', '');
+        option_str.selectedIndex = 0;
+        var phuong_arr = s_b[phuong_index].split("|");
+        for (var i = 0; i < phuong_arr.length; i++) {
+            option_str.options[option_str.length] = new Option(phuong_arr[i], phuong_arr[i]);
+        }
     }
-}
-  function validateForm()  {
-             var ten=document.getElementById('inputName').value;
-             var tsdt=document.getElementById('inputSDT').value;
-			 var tcccd=document.getElementById('inputCCCD').value;
-			 var tbhyt=document.getElementById('inputSTYT').value;
-			 var temail=document.getElementById('inputEmail').value;
-			 var tgt=document.getElementById('selectGender').value;
-			 var tngay=document.getElementById('inputDate').value;
-			 var ttinh=document.getElementById('tinh').value;
-			 var tquan=document.getElementById('quan').value;
-			 var tphuong=document.getElementById('phuong').value;
-             if(ten=="") 
-			 {
-                 alert("Vui lòng điền họ và tên");
-                 return false;
-             }
-			 if(tsdt=="") 
-			 {
-                 alert("Vui lòng điền số điện thoại");
-                 return false;
-             }
-			 if(tcccd=="") 
-			 {
-                 alert("Vui lòng điền thông tin căn cước công dân");
-                 return false;
-             }if(tbhyt=="") 
-			 {
-                 alert("Vui lòng điền thông tin báo hiểm y tế");
-                 return false;
-             }if(temail=="") 
-			 {
-                 alert("Vui lòng điền địa chỉ email");
-                 return false;
-             }
-			 if(tgt=="") 
-			 {
-                 alert("Vui lòng chọn giới tính");
-                 return false;
-             }
-			 if(tngay=="") 
-			 {
-                 alert("Vui lòng chọn ngày sinh");
-                 return false;
-             }
-			 if(ttinh=="") 
-			 {
-                 alert("Vui lòng chọn tỉnh");
-                 return false;
-             }
-			 if(tquan=="") 
-			 {
-                 alert("Vui lòng chọn quận");
-                 return false;
-             }
-			 if(tphuong=="") 
-			 {
-                 alert("Vui lòng chọn phường");
-                 return false;
-             }
-			 
-			 else 
-             alert("Khai báo thành công")
 
-             return true;
-         }
+    function validateForm() {
+        var ten = document.getElementById('inputName').value;
+        var tsdt = document.getElementById('inputSDT').value;
+        var tcccd = document.getElementById('inputCCCD').value;
+        var tbhyt = document.getElementById('inputSTYT').value;
+        var temail = document.getElementById('inputEmail').value;
+        var tgt = document.getElementById('selectGender').value;
+        var tngay = document.getElementById('inputDate').value;
+        var ttinh = document.getElementById('tinh').value;
+        var tquan = document.getElementById('quan').value;
+        var tphuong = document.getElementById('phuong').value;
+        if (ten == "") {
+            alert("Vui lòng điền họ và tên");
+            return false;
+        }
+        if (tsdt == "") {
+            alert("Vui lòng điền số điện thoại");
+            return false;
+        }
+        if (tcccd == "") {
+            alert("Vui lòng điền thông tin căn cước công dân");
+            return false;
+        }
+        if (tbhyt == "") {
+            alert("Vui lòng điền thông tin báo hiểm y tế");
+            return false;
+        }
+        if (temail == "") {
+            alert("Vui lòng điền địa chỉ email");
+            return false;
+        }
+        if (tgt == "") {
+            alert("Vui lòng chọn giới tính");
+            return false;
+        }
+        if (tngay == "") {
+            alert("Vui lòng chọn ngày sinh");
+            return false;
+        }
+        if (ttinh == "") {
+            alert("Vui lòng chọn tỉnh");
+            return false;
+        }
+        if (tquan == "") {
+            alert("Vui lòng chọn quận");
+            return false;
+        }
+        if (tphuong == "") {
+            alert("Vui lòng chọn phường");
+            return false;
+        } else
+            alert("Khai báo thành công")
 
+        return true;
+    }
 </script>
 <div style="margin-top: 100px;" class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
@@ -111,7 +102,7 @@ function print_phuong(phuong_id, phuong_index){
                     <p class="text1"><b>Nguồn:</b>
                         <a href="">Hướng dẫn tờ khai y tế; Mẫu tờ khai y tế</a>
                     </p>
-                    
+
                 </div>
                 <form action="index.php?HTKBYT" method="POST" onsubmit="return validateForm()">
                     <h4 class="title-form">thông tin cá nhân</h4>
@@ -137,7 +128,7 @@ function print_phuong(phuong_id, phuong_index){
                                 <label for="selectGender">Giới tính</label>
                                 <label id="ergt" style="color:red"> (*)</label>
                                 <select class="form-control pl-4" id="selectGender" onchange="ktgt()" name="gioitinh">
-									<option value="">Chọn</option>
+                                    <option value="">Chọn</option>
                                     <option value="Nam">Nam</option>
                                     <option value="Nữ">Nữ</option>
                                 </select>
@@ -177,14 +168,14 @@ function print_phuong(phuong_id, phuong_index){
                             <label for="tinh">Tỉnh thành</label>
                             <label id="" style="color:red">(*)</label>
                             <select class="form-control pl-4" onchange="print_quan('quan',this.selectedIndex);" id="tinh" name="tinh">
-                                
+
                             </select>
                         </div>
                         <div class="col-4">
                             <label for="quan">Quận / huyện</label>
                             <label id="" style="color:red">(*)</label>
                             <select class="form-control pl-4" onchange="print_phuong('phuong',this.selectedIndex);" id="quan" name="quan">
-                               
+
                             </select>
                         </div>
                         <div class="col-4">
@@ -201,7 +192,9 @@ function print_phuong(phuong_id, phuong_index){
                             <input type="text" class="form-control pl-4" id="inputadd" placeholder="Số nhà, phố, tổ dân phố/thôn/đội" name="diachi">
                         </div>
                     </div>
-					<script language="javascript">print_tinh("tinh");</script>
+                    <script language="javascript">
+                        print_tinh("tinh");
+                    </script>
                     <!-- ~Triệu chứng~ -->
                     <h4 class="title-form">Triệu chứng</h4>
                     <div class="row col-12">

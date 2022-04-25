@@ -7,7 +7,7 @@
 
                 <li class="menu-title">Search</li>
                 <li>
-                    <a href="index.php?search&=TKBN">
+                    <a href="index.php?search">
                         <i class="fas fa-search"></i>
                         <span>Tìm kiếm bệnh nhân</span>
                     </a>

@@ -3,11 +3,7 @@ include_once "View/V_Global/head.php";
 ?>
 
 <body>
-    <!-- Begin page -->
     <div id="wrapper">
-
-
-        <!-- Topbar Start -->
         <div class="navbar-custom">
             <ul class="list-unstyled topnav-menu float-right mb-0">
 
@@ -175,8 +171,6 @@ include_once "View/V_Global/head.php";
                 </li>
             </ul>
         </div>
-        <!-- end Topbar -->
-        <!-- ========== Left Sidebar Start ========== -->
         <div class="left-side-menu">
 
 
@@ -363,16 +357,9 @@ include_once "View/V_Global/head.php";
 
 
         </div>
-        <!-- Left Sidebar End -->
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
 
         <div class="content-page">
             <div class="content">
-
-                <!-- Start container-fluid -->
                 <div class="container-fluid">
                     <?php
                     if (isset($_REQUEST['QLBN'])) {
@@ -391,17 +378,16 @@ include_once "View/V_Global/head.php";
                         include_once "View/V_Views/ListTK.php";
                     } elseif (isset($_REQUEST['AddTK'])) {
                         include_once "View/V_Views/TaiKhoanAdd.php";
+                    } elseif (isset($_REQUEST['AddBV'])) {
+                        include_once "View/V_Views/BenhVienAdd.php";
+                    } elseif (isset($_REQUEST['UpBV'])) {
+                        include_once "View/V_Views/CapnhatTK.php";
                     } else {
                         include_once "View/V_Views/vAdmin.php";
                     }
                     ?>
 
                 </div>
-                <!-- end container-fluid -->
-
-
-
-                <!-- Footer Start -->
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -411,14 +397,8 @@ include_once "View/V_Global/head.php";
                         </div>
                     </div>
                 </footer>
-                <!-- end Footer -->
-
             </div>
-            <!-- end content -->
-
         </div>
-        <!-- END content-page -->
-
     </div>
     <!-- END wrapper -->
 

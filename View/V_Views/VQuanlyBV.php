@@ -1,123 +1,110 @@
-<div class="container-fluid" style="margin-top: 100px;">
+<div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
-        <div class="col-lg-10 left">
-            <h4>Quản lý bệnh viện</h4>
-            <div class="info">
-               
-                <form action="#" method="post">
-                            <!-- Name -->
-                            <div class="form-group">
-                                <label for="inputName">Tên bệnh viện (ghi chữ IN HOA)</label>
-                                <input type="text" class="form-control pl-4" id="inputName" placeholder="Tên bệnh viện (ghi chữ IN HOA)">
-                            </div>
-                            <!-- Mã bệnh nhân -->
-                            <div class="form-group">
-                            	<label for="inputMabenhvien">Mã bệnh viện</label>
-                                <input type="text" class="form-control pl-4" id="inputMabenhvien" placeholder="Mã bệnh viện">
-                            </div>
-                        
-                            <!-- ~Địa chỉ~ -->
-                            <div class="form-group">
-                            	<label for="inputAdd">Địa chỉ</label>
-                                <input type="text" class="form-control pl-4" id="inputAdd" placeholder="Số nhà, tên đường">
-                            </div>
-                            <!-- ~Tỉnh thành~ -->
-                            <div class="form-group">
-                            	<label for="selectTinh">Tỉnh thành</label>
-                            	<select class="form-control pl-4" id="selectTinh">
-                                	<option value="">TP.Hồ Chí Minh</option>
-                                	<option value="">Đồng Nai</option>
-                                	<option value="">Bình Dương</option>
-                                    <option value="">Tây Ninh</option>
-                                    <option value="">Long An</option>
-                                    <option value="">Tỉnh thành khác</option>
-                            	</select>
-                            </div>
-                            <!-- ~Quận/Huyện~ -->
-                            <div class="form-group">
-                            	<label for="selectQuan">Quận / huyện</label>
-                            	<select class="form-control pl-4" id="selectQuan">
-                                	<option value="">Quận 1</option>
-                               		<option value="">Quận 3</option>
-                               	 	<option value="">Quận 4</option>
-                                	<option value="">Quận 5</option>
-                                	<option value="">Quận 6</option>
-                                	<option value="">Quận 7</option>
-                                	<option value="">Quận 8</option>
-                                	<option value="">Quận 10</option>
-                                    <option value="">Quận 11</option>
-                                    <option value="">Quận 12</option>
-                                    <option value="">TP.Thủ Đức</option>
-                                    <option value="">Quận Gò Vấp</option>
-                                    <option value="">Quận Bình Thạnh</option>
-                                    <option value="">Quận Bình Tân</option>
-                                    <option value="">Quận Tân Bình</option>
-                                    <option value="">Quận Phú Nhuận</option>
-                                    <option value="">Quận Tân Phú</option>
-                                    <option value="">H.Hóc Môn</option>
-                                    <option value="">H.Củ Chi</option>
+        <div class="col-lg-12">
+            <h4>Danh sách bệnh viện</h4>
+            <a href="admin.php?AddBV">
+                <button class="btn btn-primary">
+                    Thêm bệnh viện
+                </button>
+            </a>
+            <table class="table table-bordered table-light table-hover">
+                <thead class="thead-dark">
+                    <tr class="text-align-center">
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên bệnh viện</th>
+                        <th scope="col">Mã bệnh viện</th>
+                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Số điện thoại</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Số tầng</th>
+                        <th scope="col">Số BN tiếp nhận</th>
+                        <th scope="col">Số Bn đan điều trị</th>
+                        <th scope="col">Số Bn có thể tiếp nhận thêm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="font-weight-bold">
+                        <th scope="row">1</th>
+                        <td>Bệnh viện quân y 175</td>
+                        <td>BV01</td>
+                        <td>786, Nguyễn Kiệm, p3, Gò Vấp, TP.Hồ Chí Minh</td>
+                        <td>012 4321 345</td>
+                        <td>benhvien175@gmail.com</td>
+                        <td>Tầng 1</td>
+                        <td>700</td>
+                        <td>200</td>
+                        <td>500</td>
+                        <td>
+                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
 
-                                    <option value="">H.Cần Giờ</option>
-                                    <option value="">H.Bình Chánh</option>
-                                    <option value="">H.Nhà Bè</option>
-                            	</select>
-                            </div>
-                            <!-- ~Phường/Xã~ -->
-                            <div class="form-group">
-                            	<label for="selectPhuong">Phường / xã</label>
-                            	<select class="form-control pl-4" id="selectPhuong">
-                                	<option value="">Phường 1</option>
-                                	<option value="">Phường 2</option>
-                                	<option value="">Phường 3</option>
-                                    <option value="">Phường 4</option>
-                                    <option value="">Phường 5</option>
-                                    <option value="">Phường 6</option>
-                                    <option value="">....</option>
-                            	</select>
-                            </div>
-     						<!-- NumberPhone -->
-                            <div class="form-group">
-                                <label for="inputSDT">Số điện thoại</label>
-                                <input type="text" class="form-control pl-4" id="inputSDT" placeholder="Điện thoại">
-                            </div>
-                           <!-- Email -->
-                            <div class="form-group">
-                                <label for="inputEmail">Email</label>
-                                <input type="text" class="form-control pl-4" id="inputEmail" placeholder="Email">
-                            </div>
-                            <!-- Số tầng -->
-                            <div class="form-group">
-                            	<label for="selectSotang">Số tầng</label>
-                            	<select class="form-control pl-4" id="selectSotang">
-                                	<option value="">Tầng 1</option>
-                                	<option value="">Tầng 2</option>
-                                	<option value="">Tầng 3</option>
-                                    <option value="">Tầng 4</option>
-                                    <option value="">Tầng 5</option>
-                            	</select>
-                            </div>
-                            </div>
-                            <!-- Số bệnh nhân tiếp nhận -->
-                            <div class="form-group">
-                                <label for="inputSobenhnhantiepnhan">Số bệnh nhân tiếp nhận</label>
-                                <input type="text" class="form-control pl-4" id="inputSobenhnhantiepnhan">
-                            </div>
-                            <!-- Số bệnh nhân đang điều trị -->
-                            <div class="form-group">
-                                <label for="inputSobenhnhandangdieutri">Số bệnh nhân đang điều trị</label>
-                                <input type="text" class="form-control pl-4" id="inputSobenhnhandangdieutri">
-                            </div>
-                            <!-- Số bệnh nhân có thể tiếp nhận thêm -->
-                            <div class="form-group">
-                                <label for="inputBNtiepnhanthen">Số bệnh nhân có thể tiếp nhận thêm</label>
-                                <input type="text" class="form-control pl-4" id="inputBNtiespnhanthem">
-                            </div>
-                    <button type="submit" class="btn btn-primary QLBV">Thêm</button>
-                    <button type="submit" class="btn btn-primary QLBV">Sửa</button>
-                    <button type="submit" class="btn btn-primary QLBV">Xóa</button>
-                </form>
-            </div>
+                        </td>
+                    </tr>
+                    <tr class="font-weight-bold">
+                        <th scope="row">2</th>
+                        <td>Bệnh viện Chợ Rẫy</td>
+                        <td>BV02</td>
+                        <td>201B Nguyễn Chí Thanh, Phường 12, Quận 5, Thành phố Hồ Chí Minh</td>
+                        <td>012 4321 345</td>
+                        <td>benhvienchoray@gmail.com</td>
+                        <td>Tầng 2</td>
+                        <td>700</td>
+                        <td>340</td>
+                        <td>360</td>
+                        <td>
+                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
+
+                        </td>
+                    </tr>
+                     <tr class="font-weight-bold">
+                        <th scope="row">3</th>
+                        <td>Bệnh viện Thống Nhất</td>
+                        <td>BV03</td>
+                        <td>Số 1, Lý Thường Kiệt, Phường 7, Quận Tân Bình, Tp.HCM.</td>
+                        <td>012 4321 345</td>
+                        <td>benhvienthongnhat@gmail.com</td>
+                        <td>Tầng 3</td>
+                        <td>1000</td>
+                        <td>900</td>
+                        <td>100</td>
+                        <td>
+                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
+
+                        </td>
+                    </tr>
+                    <tr class="font-weight-bold">
+                        <th scope="row">4</th>
+                        <td>Bệnh viện Nhân dân 115</td>
+                        <td>BV04</td>
+                        <td>527 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh</td>
+                        <td>012 4321 345</td>
+                        <td>benhvien115@gmail.com</td>
+                        <td>Tầng 4</td>
+                        <td>1000</td>
+                        <td>900</td>
+                        <td>100</td>
+                        <td>
+                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
+
+                        </td>
+                    </tr>
+                    <tr class="font-weight-bold">
+                        <th scope="row">5</th>
+                        <td>Bệnh viện Hùng Vương</td>
+                        <td>BV05</td>
+                        <td>Số 128 Hồng Bàng, Phường 12, Quận 5, Hồ Chí Minh, Vietnam.</td>
+                        <td>012 4321 345</td>
+                        <td>benhvienhungvuong@gmail.com</td>
+                        <td>Tầng 5</td>
+                        <td>450</td>
+                        <td>210</td>
+                        <td>240</td>
+                        <td>
+                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
+
+                        </td>
+                </tbody>
+            </table>
+            
         </div>
     </div>
 </div>
-
