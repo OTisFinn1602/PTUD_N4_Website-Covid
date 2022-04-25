@@ -1,6 +1,6 @@
-<div class="container-fluid" style="margin-top: 100px;">
+<div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
-        <div class="col-lg-12 left">
+        <div class="col-lg-12">
             <h4>Xác nhận yêu cầu chuyển viện</h4>
             <table class="table table-bordered table-light table-hover">
                 <thead class="thead-dark">

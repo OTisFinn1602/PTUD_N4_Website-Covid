@@ -32,9 +32,20 @@
         function SelectAccount($a, $b){
             $p = new clsketnoi();
             if($p->ketnoiDB($conn)){
-                $string = "SELECT * FROM taikhoan where TenTK = '$a' and MatKhau = '$b'";
+                $string = "SELECT * FROM tbl_taikhoan where ten = '$a' and matkhau = '$b'";
                 $table = mysqli_query($conn, $string);
-                echo $string;
+                $p->dongketnoi($conn);
+                return $table;
+            }else{
+                return false; 
+            }
+        }
+
+        function SelectChucVu($a, $b){
+            $p = new clsketnoi();
+            if($p->ketnoiDB($conn)){
+                $string = "SELECT ChucVu FROM tbl_taikhoan where ten = '$a' and matkhau = '$b'";
+                $table = mysqli_query($conn, $string);
                 $p->dongketnoi($conn);
                 return $table;
             }else{

@@ -6,7 +6,7 @@ function ktten(){
                 document.getElementById('ert').innerHTML="(*)";
             }
             else{
-                document.getElementById('ert').innerHTML="(*)Tên Nhập Sai";
+                document.getElementById('ert').innerHTML="(*)Tên nhập sai hoặc không được để trống";
             }
         }
 function ktsdt(){
@@ -17,7 +17,7 @@ function ktsdt(){
                 document.getElementById('ersdt').innerHTML="(*)";
             }
             else{
-                document.getElementById('ersdt').innerHTML="(*) Số điện thoại sai";
+                document.getElementById('ersdt').innerHTML="(*) SDT nhập sai hoặc không được để trống";
             }
         }
 function ktcccd(){
@@ -28,7 +28,7 @@ function ktcccd(){
                 document.getElementById('erc').innerHTML="(*)";
             }
             else{
-                document.getElementById('erc').innerHTML="(*) Số CCCD sai";
+                document.getElementById('erc').innerHTML="(*) CCCD nhập sai hoặc không được để trống";
             }
         }
 		function ktbhyt(){
@@ -39,7 +39,31 @@ function ktcccd(){
                 document.getElementById('erb').innerHTML="(*)";
             }
             else{
-                document.getElementById('erb').innerHTML="(*) Số BHYT sai";
+                document.getElementById('erb').innerHTML="(*) BHYT sai hoặc không được để trống";
+            }
+        }
+		function ktemail(){
+            var temail=document.getElementById('inputEmail').value;
+            var regemail=/^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+            if(regemail.test(temail))
+            {
+                document.getElementById('ere').innerHTML="(*)";
+				
+				
+            }
+            else{
+                document.getElementById('ere').innerHTML="(*) Email sai hoặc không được để trống";
+            }
+        }
+		function ktgt(){
+            var tgt=document.getElementById('selectGender').value;
+            if(tgt=="")
+            {
+				document.getElementById('ergt').innerHTML="(*) Vui lòng chọn giới tính";
+				
+            }
+            else{
+                 document.getElementById('ergt').innerHTML="(*)";
             }
         }
         $(document).ready(function(){
@@ -54,7 +78,7 @@ function ktcccd(){
                 return true;
                }
             else{
-                $("#ern").html("(*) Phải trước ngày hiện tại")
+                $("#ern").html("(*) Ngày sinh không hợp lệ")
                 return false;
         }
     })

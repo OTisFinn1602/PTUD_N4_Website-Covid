@@ -6,10 +6,14 @@
     if(isset($_REQUEST["submit"])){
         $a = $_REQUEST["user"];
         $b = $_REQUEST["pass"];
+        $b = md5($b);
         $acc = $p->getAccount($a, $b);
         $tblAccount = mysqli_num_rows($acc);
         if($tblAccount > 0){
             $_SESSION['dntc'] = true;
+            $chucvu = $p->getChucVu($a, $b);
+            $row = mysqli_fetch_assoc($chucvu);
+            $_SESSION['chucvu'] = $row["ChucVu"];
             echo '<script>alert("Đăng nhập thành công!");</script>';
             echo header("refresh:0; url='index.php'");
         }else{

@@ -39,23 +39,43 @@
         </h2>
         <div class="row col-12">
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
-            <a href="index.php?KBYT" class="nav-link text-white">Khai báo y tế</a>
+                <a href="index.php?KBYT" class="nav-link text-white">
+                    <div class="icon d-flex justify-content-center my-2">
+                        <i class="fas fa-calendar-plus fa-2x"></i>
+                    </div>
+                    <span class="d-flex justify-content-center font-weight-bold p-1">Khai báo y tế</span>
+                </a>
             </div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
-            <a href="index.php?search" class="nav-link text-white">Tìm kiếm</a>
+                <a href="index.php?search" class="nav-link text-white">
+                    <div class="icon d-flex justify-content-center my-2">
+                        <i class="fas fa-search fa-2x"></i>
+                    </div>
+                    <span class="d-flex justify-content-center font-weight-bold p-1">Tìm kiếm</span>
+                </a>
             </div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
-            <!-- <a href="index.php?QLBV" class="nav-link text-white">QuanLyBV</a> -->
+                <a href="index.php?YCCV" class="nav-link text-white">
+                    <div class="icon d-flex justify-content-center my-2">
+                        <i class="fas fa-procedures fa-2x"></i>
+                    </div>
+                    <span class="d-flex justify-content-center font-weight-bold p-1">Yêu cầu chuyển viện</span>
+                </a>
             </div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
-            <a href="index.php?YCTV" class="nav-link text-white">Yêu Cầu Tư Vấn</a>
+                <a href="index.php?YCTV" class="nav-link text-white">
+                <div class="icon d-flex justify-content-center my-2">
+                <i class="fas fa-comments fa-2x"></i>
+                </div>
+                <span class="d-flex justify-content-center font-weight-bold p-1">Yêu Cầu Tư Vấn</span>
+                </a>
             </div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;">
-            <a href="index.php?XNYC" class="nav-link text-white">Xác nhận YC</a>
+            <!-- <div class="col p-2 m-2 bg-info" style="height: 100px;">
+
             </div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
+            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div> -->
         </div>
         <div class="row col-12">
             <div class="col bg-success p-2 m-2" style="height: 500px;"></div>

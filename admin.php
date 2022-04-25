@@ -479,6 +479,7 @@ include_once "View/V_Global/head.php";
 <script src="./Js/jquery-3.6.0.min.js"></script>
 <script src="./css/bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
 <script src="./css/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+<script src="./Js/KBYT_NCT.js"></script>
 <!--  -->
 <!-- Vendor js -->
 <script src="./css/assets/js/vendor.min.js"></script>

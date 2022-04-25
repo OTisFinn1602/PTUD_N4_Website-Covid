@@ -16,6 +16,11 @@
             $tblAccount = $p->SelectAccount($a, $b);
             return $tblAccount;
         }
+        function getChucVu($a, $b){
+            $p = new modelAccount();
+            $tblAccount = $p->SelectChucVu($a, $b);
+            return $tblAccount;
+        }
         // function editAccount($acc, $name, $user, $pass){
         //     $p = new modelAccount();
         //     $tblAccount = $p->editAccount($acc, $name, $user, $pass);

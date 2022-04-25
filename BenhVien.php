@@ -219,7 +219,7 @@ include_once "View/V_Global/head.php";
                         </a>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a href="javascript: void(0);">
                             <i class="ti-light-bulb"></i>
                             <span> Quản lý </span>
@@ -229,14 +229,13 @@ include_once "View/V_Global/head.php";
                             <li><a href="BenhVien.php?QLBN">Quản lý bệnh nhân</a></li>
                             <li><a href="BenhVien.php?QLBV">Quản lý bệnh viện</a></li>
                             <li><a href="BenhVien.php?QLTK">Quản lý tài khoản</a></li>
-                            <!-- <li><a href="components-widgets.html">Widgets</a></li> -->
                         </ul>
-                    </li>
+                    </li> -->
 
                     <!-- <li>
-                        <a href="typography.html">
+                        <a href="BenhVien.php?YCCV">
                             <i class="ti-spray"></i>
-                            <span> Typography </span>
+                            <span> Yêu cầu chuyển viện </span>
                         </a>
                     </li> -->
 
@@ -252,19 +251,19 @@ include_once "View/V_Global/head.php";
                         </ul>
                     </li>
 
-                    <!-- <li>
+                    <li>
                         <a href="javascript: void(0);">
                             <i class="ti-menu-alt"></i>
-                            <span> Tables </span>
+                            <span> Hỗ trợ bệnh nhân </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="tables-basic.html">Basic Tables</a></li>
-                            <li><a href="tables-advanced.html">Advanced Tables</a></li>
+                            <li><a href="BenhVien.php?HTBN">Tư vấn</a></li>
+                            <li><a href="BenhVien.php?YCCV">Yêu cầu chuyển viện</a></li>
                         </ul>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a href="charts.html">
                             <i class="ti-pie-chart"></i>
                             <span> Charts </span>
@@ -387,7 +386,11 @@ include_once "View/V_Global/head.php";
                         include_once "View/V_Views/VTKBN.php";
                     } elseif (isset($_REQUEST['TTBN'])) {
                         include_once "View/V_Views/CapNhatSucKhoe.php";
-                    } else {
+                    } elseif (isset($_REQUEST['HTBN'])) {
+                        include_once "View/V_Views/VHoTroBenhNhan.php";
+                    } elseif (isset($_REQUEST['YCCV'])) {
+                        include_once "View/V_Views/Xacnhanyccv.php";
+                    }else {
                         include_once "View/V_Views/vBenhVien.php";
                     }
                     ?>
