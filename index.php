@@ -28,8 +28,8 @@ include_once "View/V_Views/modules/comfig.php";
         include_once "View/V_Views/CapnhatBV.php";
     } elseif (isset($_REQUEST['YCCV'])) {
         include_once "View/V_Views/Xacnhanyccv.php";
-    } elseif (isset($_REQUEST['YCTV'])) {
-        include_once "View/V_Views/VYeucauTV.php";
+    } elseif (isset($_REQUEST['reply'])) {
+        include_once "View/V_Views/vTuVan.php";
     } elseif (isset($_REQUEST['search'])) {
         include_once "View/V_Views/vTimKiem.php";
     } elseif (isset($_REQUEST['HTKBYT'])) {

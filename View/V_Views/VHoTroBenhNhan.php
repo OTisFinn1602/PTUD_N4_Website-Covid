@@ -1,48 +1,64 @@
+<?php
+include_once("Controller/cHoTroBenhNhan.php");
+$p = new controlHTBN();
+$tblHTBN = $p->getAllHTBN();
+?>
 <div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
         <div class="col-lg-12">
             <h4>Hỗ trợ chăm sóc bệnh nhân</h4>
-            <table class="table table-bordered table-light table-hover">
-                <thead class="thead-dark">
-                    <tr class="text-align-center">
-                        <th scope="col">STT</th>
-                        <th scope="col">Mã Bệnh Nhân</th>
-                        <th scope="col">Tên Bệnh Nhân</th>
-                        <th scope="col">Nội Dung</th>
-                        <th scope="col">Ghi chú</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="font-weight-bold">
-                        <th scope="row">1</th>
-                        <td>BN1</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Tình hình sức khỏe đang ...</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>BN2</td>
-                        <td>Nguyễn Văn B</td>
-                        <td>Tình hình sức khỏe đang ...</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>BN3</td>
-                        <td>Nguyễn Văn C</td>
-                        <td>Tình hình sức khỏe đang ...</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>BN4</td>
-                        <td>Nguyễn Văn D</td>
-                        <td>Tình hình sức khỏe đang ...</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <?php
+            if ($tblHTBN) {                
+                if (mysqli_num_rows($tblHTBN) > 0) {
+                    $stt = 0;
+                    echo '
+                    <table class="table table-bordered table-light table-hover">
+                        <thead class="thead-dark">
+                            <tr class="text-align-center">
+                                <th scope="col">STT</th>
+                                <th scope="col">Mã Bệnh Nhân</th>
+                                <th scope="col">Tên Bệnh Nhân</th>
+                                <th scope="col">Nội Dung</th>
+                                <th scope="col" colspan="2">Reply</th>                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                                ';
+                    while ($row = mysqli_fetch_assoc($tblHTBN)) {
+                        if ($stt == 0) {
+                            echo '<tr class="font-weight-bold">';
+                        }
+                        $a = $row['idbenhnhan'];
+                        include_once("Controller/cBenhNhan.php");
+                        $p = new controlBenhNhan();
+                        $tblBenhNhan = $p->getBenhNhan($a);
+                        $rowBN = mysqli_fetch_assoc($tblBenhNhan);
+                        echo '
+                        <th scope="row">' . $stt . '</th>
+                        <td>' . $rowBN['id_benhnhan'] . '</td>
+                        <td>' . $rowBN['hovaten'] . '</td>
+                        <td>' . $row['noidung'] . '</td>
+                        <td><a href="BenhVien.php?reply&idBN='.$row["idbenhnhan"].'">trả lời</a></td>
+                        <td><a href="BenhVien.php?del&idBN='.$row["idbenhnhan"].'">xóa</a></td>
+                        ';
+                        $stt++;
+                        if ($stt % 1 == 0) {
+                            echo '</tr>';
+                            $stt = 0;
+                        }
+                    }
+                    echo '
+                        </tbody>
+                        </table>
+                    ';
+                }else{
+                    echo '0 Result';
+                }
+            }else{
+                echo 'ERROR';
+            }
+
+            ?>
         </div>
     </div>
 </div>

@@ -62,12 +62,18 @@
                     <span class="d-flex justify-content-center font-weight-bold p-1">Yêu cầu chuyển viện</span>
                 </a>
             </div>
+            <?php
+                include_once ("Controller/cTaiKhoan.php");
+                $p = new controlAccount();
+                $a = $_SESSION['tenTK'];
+                $tblAccount = $p->getId($a);
+            ?>
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
-                <a href="index.php?YCTV" class="nav-link text-white">
+                <a href="index.php?reply&idBN=<?php echo $idBN ?>" class="nav-link text-white">
                 <div class="icon d-flex justify-content-center my-2">
                 <i class="fas fa-comments fa-2x"></i>
                 </div>
-                <span class="d-flex justify-content-center font-weight-bold p-1">Yêu Cầu Tư Vấn</span>
+                <span class="d-flex justify-content-center font-weight-bold p-1">Tư Vấn</span>
                 </a>
             </div>
             <!-- <div class="col p-2 m-2 bg-info" style="height: 100px;">

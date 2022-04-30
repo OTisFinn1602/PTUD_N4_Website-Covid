@@ -35,7 +35,9 @@
                 }
                 if (isset($_REQUEST['Logout'])) {
                     unset($_SESSION['dntc']);
+                    unset($_SESSION['loss']);
                     unset($_SESSION['chucvu']);
+                    unset($_SESSION['tenTK']);
                     echo '<script>alert("Đăng xuất thành công!");</script>';
                     echo header("refresh:0; url='index.php'");
                 }

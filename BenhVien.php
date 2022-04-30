@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "View/V_Global/head.php";
 ?>
 
@@ -390,7 +391,9 @@ include_once "View/V_Global/head.php";
                         include_once "View/V_Views/VHoTroBenhNhan.php";
                     } elseif (isset($_REQUEST['YCCV'])) {
                         include_once "View/V_Views/Xacnhanyccv.php";
-                    }else {
+                    } elseif (isset($_REQUEST['idBN'])) {
+                        include_once "View/V_Views/vTuVan.php";
+                    } else {
                         include_once "View/V_Views/vBenhVien.php";
                     }
                     ?>
