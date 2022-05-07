@@ -23,17 +23,12 @@ if (isset($_REQUEST["submit"])) {
             $_SESSION['chucvu'] = $row["ChucVu"];
             $_SESSION['tenTK'] = $tenTK['ten'];
             unset($_SESSION['dem']);
+            unset($_SESSION['error']);
             echo '<script>alert("Đăng nhập thành công!");</script>';
             echo header("refresh:0; url='index.php'");
         } else {
             $_SESSION['loss'] = true;
-            $a = $tenTK['ten'];
-            $tblAccount = $p->getDem($a);
-            $row = mysqli_fetch_assoc($tblAccount);
-            $c = $row['dem'];
-            $dem = $c++;
-            $tbldem = $p->UpdateDem($a, $dem);
-            $_SESSION['dem'] = 5-$dem;
+            $_SESSION['dem'] -= 1;
             echo '<script>alert("Đăng nhập thất bại!");</script>';
             echo header("refresh:0; url='index.php?Login'");
         }

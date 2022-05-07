@@ -389,6 +389,12 @@ include_once "View/V_Global/head.php";
                         include_once "View/V_Views/CapNhatSucKhoe.php";
                     } elseif (isset($_REQUEST['HTBN'])) {
                         include_once "View/V_Views/VHoTroBenhNhan.php";
+						//Cập nhật tình trạng bệnh nhân
+				    } elseif (isset($_REQUEST['CNSK'])) {
+                        include_once "View/V_Views/vCNSK.php";
+					} elseif (isset($_REQUEST['XLCNBN'])) {
+                        include_once "View/V_Views/modules/xulyCNTTBN.php";
+						//
                     } elseif (isset($_REQUEST['YCCV'])) {
                         include_once "View/V_Views/Xacnhanyccv.php";
                     } elseif (isset($_REQUEST['idBN'])) {

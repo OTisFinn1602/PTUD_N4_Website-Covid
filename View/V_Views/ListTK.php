@@ -34,7 +34,20 @@ $query_listTK=mysqli_query($con,$sql_listTK);
                     <tr class="font-weight-bold">
                         <th scope="row"><?php echo $i;?></th>
                         <td><?php echo $row['ten'];?></td>
-                        <td><?php echo $row['ChucVu'];?></td>
+                        <td><?php 
+						if($row['ChucVu']==0)
+						{
+							echo 'Bệnh nhân';	
+						}
+						elseif($row['ChucVu']==1)
+						{
+							echo 'Admin';	
+						}
+						else
+						{
+							echo 'Bệnh viện';	
+						}
+						?></td>
                         <td><?php echo $row['matkhau'];?></td>
                         <td>
                             <a href="admin.php?CNTK&idtaikhoan=<?php echo $row['id_taikhoan'];?>">Cập nhật</a> || 

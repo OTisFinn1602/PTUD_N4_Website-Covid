@@ -43,13 +43,19 @@ $query_capnhat=mysqli_query($con,$sql_capnhat);
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control pl-4" value="<?php echo $row['ten']?>" name="tentaikhoan1" id="tentaikhoan">
+                <input type="text" class="form-control pl-4" placeholder="Tên tài khoản" value="<?php echo $row['ten']?>" name="tentaikhoan1" id="tentaikhoan">
             </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="text" class="form-control pl-4" value="<?php echo $row['ChucVu']?>" name="tenchucvu1" id="tenchucvu1"/>
+                
+                <select class="form-control pl-4" id="tenchucvu1" name="tenchucvu1">
+                 <option><?php echo $row['ChucVu']?></option>
+                 <option>1</option>
+                 <option>2</option>
+                 <option>0</option>
+                            </select>
             </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">

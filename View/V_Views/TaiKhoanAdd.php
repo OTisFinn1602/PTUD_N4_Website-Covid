@@ -39,7 +39,12 @@ function validateForm()  {
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Nhập chức vụ" name="tenchucvu" id="tenchucvu">
+                <!--input type="text" class="form-control pl-4" placeholder="Nhập chức vụ" name="tenchucvu" id="tenchucvu"-->
+                 <select class="form-control pl-4" id="tenchucvu" name="tenchucvu">
+                 <option>1</option>
+                 <option>2</option>
+                 <option>0</option>
+                            </select>
             </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
@@ -47,6 +52,7 @@ function validateForm()  {
                 </div>
                 <input type="password" class="form-control pl-4" placeholder="Nhập mật khẩu" name="matkhau" id="matkhau">
             </div>
+            <p style="color:#F00">Chú ý:Chức vụ của các admin được phân quyền là 1.Các bệnh viện là 2.</p>
             <div class="d-flex justify-content-center pr-2">
                 <button type="submit" class="btn btn-primary"name="Themtaikhoan" >Thêm tài khoản </button>
             </div>

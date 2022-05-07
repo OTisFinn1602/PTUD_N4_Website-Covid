@@ -24,11 +24,33 @@
 
             <div class="attention">
                 <?php
-                    if($_SESSION['loss'] == true){
-                        echo'
-                        <span class="text-danger">Bạn được nhập sai tối đa 5 lần.</br></span>
-                        Số lần đăng nhập còn lại: <span class="text-danger font-weight-bold">'.$_SESSION['dem'].'</span>
-                        ';
+                    if($_SESSION['loss'] == true){  
+                        if($_SESSION['dem'] <= 4){
+                            echo'
+                            <span class="text-danger">Bạn được nhập sai tối đa 5 lần.</br></span>
+                            Số lần đăng nhập còn lại: <span class="text-danger font-weight-bold">'.$_SESSION['dem'].'</span>
+                            ';
+                        }                      
+                        if($_SESSION['dem'] == 0){
+                            $_SESSION['error'] +=1;
+                            if($_SESSION['error'] == 1){
+                                echo '<script>alert("ERROR 2s");</script>';
+                                sleep(2);
+                            }
+                            if($_SESSION['error'] == 2){
+                                echo '<script>alert("ERROR 4s");</script>';
+                                sleep(4);
+                            }
+                            if($_SESSION['error'] == 3){
+                                echo '<script>alert("ERROR 6s");</script>';
+                                sleep(6);
+                            }
+                            echo header("refresh:0; url='index.php?Login'");
+                            $_SESSION['dem'] = 5;
+                        }
+                    }
+                    else{
+                        $_SESSION['dem'] = 5;
                     }
                 ?>
                 <p class="text2">CHÚ Ý: Tên tài khoản là số điện thoại bạn đã <a href="index.php?KBYT"><b>khai báo y tế</b></a> <br> Mật khẩu mặc định là 12345678</p>

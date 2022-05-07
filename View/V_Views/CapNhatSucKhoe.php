@@ -1,88 +1,56 @@
+<?php
+{
+    include('modules/comfig.php');
+	$sql_benhnhan="select * from tbl_benhnhan";
+	$query_benhnhan=mysqli_query($con,$sql_benhnhan);
+}
+?>
 <div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
         <div class="col-lg-12">
+            <form class="capnhatttbn" action="benhvien.php?TTBN" method="post" >
             <h4>Cập nhật tình trạng bệnh nhân</h4>
             <table class="table table-bordered table-light table-hover">
                 <thead class="thead-dark">
                     <tr class="text-align-center">
                         <th scope="col">STT</th>
-                        <th scope="col">Mã Bệnh Nhân</th>
                         <th scope="col">Tên Bệnh Nhân</th>
+                        <th scope="col">Số điện thoại</th>
                         <th scope="col">Tình trạng bệnh</th>
+                        <th scope="col">Tầng</th>
                         <th scope="col">Cập nhật tình trạng bệnh</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+				$i=0;
+				while($row=mysqli_fetch_array($query_benhnhan))
+				{
+					$i++;
+                ?>
                     <tr class="font-weight-bold">
-                        <th scope="row">1</th>
-                        <td>01</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Mức độ 2</td>
-                        <td>
-                       <select>
-                        <option>Mức độ 1</option>
-                        <option>Mức độ 2</option>
-                        <option>Mức độ 3</option>
-                        <option>Mức độ 4</option>
-                        <option>Mức độ 5</option>
-                        <option>Mức độ 0</option>
-                        </select>
-                   
-                        </td>
+                        <th scope="row"><?php echo $i;?></th>
+                        <td><a href="BenhVien.php?CNSK&idbenhnhan=<?php echo $row['id_benhnhan'];?>"><?php echo $row['hovaten'];?></a></td>
+                        <td><?php echo $row['sodienthoai']?></td>
+                        <td><?php echo $row['trieuchung'];?></td>
+                        <td><?php echo $row['tang'];?></td>
+                        <td><?php 
+                         if($row['tinhtrang']==0)
+                         {
+                             echo 'Đang điều trị';
+                         }
+                         else
+                         {
+                             echo 'Đã xuất viện';
+                         }
+                         ?></td>                       
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>02</td>
-                        <td>Nguyễn Văn B</td>
-                        <td>Mức độ 5</td>
-                        <td>
-                        <select>
-                        <option>Mức độ 1</option>
-                        <option>Mức độ 2</option>
-                        <option>Mức độ 3</option>
-                        <option>Mức độ 4</option>
-                        <option>Mức độ 5</option>
-                        <option>Mức độ 0</option>
-                        </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>03</td>
-                        <td>Nguyễn Văn C</td>
-                        <td>Mức độ 1</td>
-                        <td>
-                        <select>
-                        <option>Mức độ 1</option>
-                        <option>Mức độ 2</option>
-                        <option>Mức độ 3</option>
-                        <option>Mức độ 4</option>
-                        <option>Mức độ 5</option>
-                        <option>Mức độ 0</option>
-                        </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>04</td>
-                        <td>Nguyễn Văn D</td>
-                        <td>Mức độ 3</td>
-                        <td>
-                        <select>
-                        <option>Mức độ 1</option>
-                        <option>Mức độ 2</option>
-                        <option>Mức độ 3</option>
-                        <option>Mức độ 4</option>
-                        <option>Mức độ 5</option>
-                        <option>Mức độ 0</option>
-                        </select>
-                        </td>
-                    </tr>
-                </tbody>
+                    <?php
+                }
+            ?>
             </table>
-            <div class="d-flex justify-content-center pr-2">
-                <button type="submit" class="btn btn-primary">Lưu cập nhật </button>
             </div>
+            </from>
         </div>
     </div>
 </div>
