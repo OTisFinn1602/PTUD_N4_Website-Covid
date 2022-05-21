@@ -34,16 +34,27 @@
                         if($_SESSION['dem'] == 0){
                             $_SESSION['error'] +=1;
                             if($_SESSION['error'] == 1){
-                                echo '<script>alert("ERROR 2s");</script>';
-                                sleep(2);
+                                echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 5 phút");</script>';                                
+                                // sleep(300);
+                                sleep(3);
                             }
                             if($_SESSION['error'] == 2){
-                                echo '<script>alert("ERROR 4s");</script>';
-                                sleep(4);
+                                echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 10 phút");</script>';
+                                // sleep(600);
+                                sleep(6);
                             }
                             if($_SESSION['error'] == 3){
-                                echo '<script>alert("ERROR 6s");</script>';
-                                sleep(6);
+                                echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 30 phút");</script>';
+                                // sleep(1800);
+                                sleep(10);
+                            }
+                            if($_SESSION['error'] == 4){
+                                echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 60 phút");</script>';
+                                // sleep(3600);
+                            }
+                            if($_SESSION['error'] == 5){
+                                echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 1 ngày");</script>';
+                                // sleep(86400);
                             }
                             echo header("refresh:0; url='index.php?Login'");
                             $_SESSION['dem'] = 5;
@@ -58,3 +69,4 @@
         </form>
     </div>
 </div>
+</body>

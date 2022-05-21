@@ -54,5 +54,14 @@ if (isset($_POST['khaibaoyte'])) {
             Mã đăng nhập: <?php echo $sodienthoai ?></br>
             Mật khẩu: 12345678 </br>
             Vui lòng đổi mật khẩu trước khi đăng nhâp</p>
+            <form action="index.php">
+                <button type="submit" class="btn btn-primary">OK</button>
+            </form>
     </div>
+    <?php 
+    // echo '<script>alert("Bấm ok để trở lại trang đăng nhập");</script>';
+    // if(isset($_REQUEST["ok"])){
+    //     header("refresh:0; url='index.php'");
+    // }
+    ?>
 </div>

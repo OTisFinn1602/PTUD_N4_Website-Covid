@@ -48,6 +48,7 @@
         var ttinh = document.getElementById('tinh').value;
         var tquan = document.getElementById('quan').value;
         var tphuong = document.getElementById('phuong').value;
+        var tdiachi = document.getElementById('diachi').value;
         if (ten == "") {
             alert("Vui lòng điền họ và tên");
             return false;
@@ -87,15 +88,31 @@
         if (tphuong == "") {
             alert("Vui lòng chọn phường");
             return false;
+        }
+        if (tdiachi == "") {
+            alert("Vui lòng nhập địa chỉ");
+            return false;
         } else
             alert("Khai báo thành công")
 
         return true;
     }
 </script>
+<?php
+if ($_SESSION["dntc"] == true) {
+    include_once("./View/V_Global/header.php");
+}
+?>
 <div style="margin-top: 100px;" class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
         <div class="col-lg-10 left">
+            <?php
+            if ($_SESSION['dntc'] != true) {
+                echo '<a href="index.php?Login">
+                    <button type="submit" class="btn btn-primary">Trở lại đăng nhập</button>
+                </a>';
+            }
+            ?>
             <h4>khai báo y tế</h4>
             <div class="info">
                 <div class="attention">
@@ -105,7 +122,7 @@
 
                 </div>
                 <form action="index.php?HTKBYT" method="POST" onsubmit="return validateForm()">
-                    <h4 class="title-form">thông tin cá nhân</h4>
+                    <h4 class="title-form">Thông tin cá nhân</h4>
 
                     <!-- ~Thông tin cá nhân~ -->
                     <div class="row col-12 inf-Per">
@@ -189,7 +206,7 @@
                         <div class="col-12">
                             <label for="inputadd">Số nhà, phố, tổ dân phố/thôn/đội</label>
                             <label id="erdc" style="color:red">(*)</label>
-                            <input type="text" class="form-control pl-4" id="inputadd" placeholder="Số nhà, phố, tổ dân phố/thôn/đội" name="diachi">
+                            <input type="text" class="form-control pl-4" id="diachi" placeholder="Số nhà, phố, tổ dân phố/thôn/đội" name="diachi">
                         </div>
                     </div>
                     <script language="javascript">
@@ -199,7 +216,7 @@
                     <h4 class="title-form">Triệu chứng</h4>
                     <div class="row col-12">
                         <div class="col-12">
-                            <label for="inputadd">Triệu chúng gặp phải</label>
+                            <label for="inputadd">Triệu chứng gặp phải</label>
                             <input type="text" class="form-control pl-4" id="trieuchung" placeholder="Ho, sốt, khó thở" name="trieuchung">
                         </div>
                     </div>

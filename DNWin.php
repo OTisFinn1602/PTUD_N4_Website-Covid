@@ -29,7 +29,7 @@ if (isset($_REQUEST["submit"])) {
         } else {
             $_SESSION['loss'] = true;
             $_SESSION['dem'] -= 1;
-            echo '<script>alert("Đăng nhập thất bại!");</script>';
+            echo '<script>alert("Đăng nhập thất bại! Tên tài khoản hoặc mật khẩu sai");</script>';
             echo header("refresh:0; url='index.php?Login'");
         }
     }

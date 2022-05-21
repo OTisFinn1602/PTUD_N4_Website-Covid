@@ -1,12 +1,12 @@
 function ktten(){
             var ten=document.getElementById('inputName').value;
-            var regten=/^([A-Z]{1}[a-z]{1,6}\s[A-Z]{1}[a-z]{1,6}\s[A-Z]{1}[a-z]{0,6})|([A-Z]{1}[a-z]{1,6}\s[A-Z]{1}[a-z]{1,6}\s[A-Z]{1}[a-z]{0,6}\s[A-Z]{1}[a-z]{0,6})$/;
-            if(regten.test(ten))
+            var regten="";
+            if(regten=ten)
             {
                 document.getElementById('ert').innerHTML="(*)";
             }
             else{
-                document.getElementById('ert').innerHTML="(*)Tên nhập sai hoặc không được để trống";
+                document.getElementById('ert').innerHTML="(*)Vui lòng nhập họ và tên";
             }
         }
 function ktsdt(){
@@ -17,7 +17,7 @@ function ktsdt(){
                 document.getElementById('ersdt').innerHTML="(*)";
             }
             else{
-                document.getElementById('ersdt').innerHTML="(*) SDT nhập sai hoặc không được để trống";
+                document.getElementById('ersdt').innerHTML="(*) Vui lòng nhập lại số điện thoại";
             }
         }
 function ktcccd(){

@@ -1,135 +1,273 @@
+<!--Cập nhật bệnh viện-->
+<script>
+function validateForm()  {
+             var ten=document.getElementById('ten').value;
+             var tma=document.getElementById('id_benhvien').value;
+			 var tdc=document.getElementById('diachi').value;
+             var ttinh=document.getElementById('tinh').value;
+             var tquan=document.getElementById('quan').value;
+             var tphuong=document.getElementById('phuong').value;
+             var tsdt=document.getElementById('sodienthoai').value;
+             var temail=document.getElementById('email').value;
+             var ttang=document.getElementById('tang').value;
+             var ttiepnhan=document.getElementById('sobenhnhantiepnhan').value;
+             var tdatiepnhan=document.getElementById('sobenhnhandatiepnhan').value;
+             var ttiepnhanthem=document.getElementById('sobenhnhancothetiepnhan').value;
+             if(ten=="") 
+			 {
+                 alert("Vui lòng nhập tên bệnh viện");
+                 return false;
+             }
+			 if(tma=="") 
+			 {
+                 alert("Vui lòng nhập mã bệnh viện");
+                 return false;
+             }
+			 if(tdc=="") 
+			 {
+                 alert("Vui lòng nhập địa chỉ");
+                 return false;
+             }
+             if(ttinh=="") 
+			 {
+                 alert("Vui lòng chọn tỉnh thành");
+                 return false;
+             }
+             if(tquan=="") 
+			 {
+                 alert("Vui lòng chọn quận/huyện");
+                 return false;
+             }
+             if(tphuong=="") 
+			 {
+                 alert("Vui lòng chọn phường/xã");
+                 return false;
+             }
+             if(tsdt=="") 
+			 {
+                 alert("Vui lòng nhập số điện thoại");
+                 return false;
+             }
+             if(temail=="") 
+			 {
+                 alert("Vui lòng nhập email bệnh viện");
+                 return false;
+             }
+             if(ttang=="") 
+			 {
+                 alert("Vui lòng chọn số tầng");
+                 return false;
+             }
+             if(ttiepnhan=="") 
+			 {
+                 alert("Vui lòng số lượng bệnh nhân tiếp nhận");
+                 return false;
+             }
+             if(tdatiepnhan=="") 
+			 {
+                 alert("Vui lòng nhập số lượng bệnh nhân đã tiếp nhận");
+                 return false;
+             }
+             if(ttiepnhanthem=="") 
+			 {
+                 alert("Vui lòng nhập số lượng bệnh nhân có thể tiếp nhận thêm");
+                 return false;
+             }
+			 else 
+             alert("Tạo bệnh viện thành công")
+
+             return true;
+         }
+</script>
+<script>
+    var tinh_arr = new Array("TP Hồ Chí Minh");
+
+    function print_tinh(tinh_id) {
+        // given the id of the <select> tag as function argument, it inserts <option> tags
+        var option_str = document.getElementById(tinh_id);
+        option_str.length = 0;
+        option_str.options[0] = new Option('Tỉnh,Thành phố', '');
+        option_str.selectedIndex = 0;
+        for (var i = 0; i < tinh_arr.length; i++) {
+            option_str.options[option_str.length] = new Option(tinh_arr[i], tinh_arr[i]);
+        }
+    }
+
+    function print_quan(quan_id, quan_index) {
+        var option_str = document.getElementById(quan_id);
+        option_str.length = 0;
+        option_str.options[0] = new Option('Quận,Huyện', '');
+        option_str.selectedIndex = 0;
+        var quan_arr = s_a[quan_index].split("|");
+        for (var i = 0; i < quan_arr.length; i++) {
+            option_str.options[option_str.length] = new Option(quan_arr[i], quan_arr[i]);
+        }
+    }
+    //This function is incorrect, just to demonstrate, please help to correct this
+
+    function print_phuong(phuong_id, phuong_index) {
+        var option_str = document.getElementById(phuong_id);
+        option_str.length = 0;
+        option_str.options[0] = new Option('Phường Xã', '');
+        option_str.selectedIndex = 0;
+        var phuong_arr = s_b[phuong_index].split("|");
+        for (var i = 0; i < phuong_arr.length; i++) {
+            option_str.options[option_str.length] = new Option(phuong_arr[i], phuong_arr[i]);
+        }
+    }
+</script>
+<?php
+include("modules/comfig.php");
+$sql_capnhat="SELECT * FROM tbl_benhvien where id_benhvien='$_GET[idbenhvien]'";
+$query_capnhat=mysqli_query($con,$sql_capnhat);
+?>
 <div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
-        <form class="form_login w-75 pb-3 px-3" action="#" method="post">
+        <form class="form_login w-75 pb-3 px-3" action="./View/V_Views/modules/xulyBV.php?idbenhvien=<?php echo $_GET[idbenhvien];?>" method="POST" onsubmit="return validateForm()">
+        <?php 
+		while($row=mysqli_fetch_array($query_capnhat))
+		{
+		?>
             <h4>Cập nhật bệnh viện </h4>
-      
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></i></span>
+            <!-- tên -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Tên bệnh viện</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Tên bệnh viện">
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4" placeholder="Tên bệnh viện" value="<?php echo $row['ten']?>" name="ten" id="ten">
+                    </div>
+                </div>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></i></span>
+            <!-- Mã -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Mã bệnh viện</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Mã bệnh viện">
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4"  value="<?php echo $row['mabenhvien']?>" name="mabenhvien" id="mabenhvien">
+                    </div>
+                </div>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></i></span>
+                      <!-- Địa chỉ -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span>Địa chỉ</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Địa chỉ">
-            </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
-                </div>
-                <input type="text" class="form-control pl-4" placeholder="Tỉnh thành">
-                <label for="selectTinh">Tỉnh thành</label>
-                            	<select class="form-control pl-4" id="selectTinh">
-                                	<option value="">TP.Hồ Chí Minh</option>
-                                	<option value="">Đồng Nai</option>
-                                	<option value="">Bình Dương</option>
-                                    <option value="">Tây Ninh</option>
-                                    <option value="">Long An</option>
-                                    <option value="">Tỉnh thành khác</option>
+<!-- ~Tỉnh thành~ -->
+            <div class="col">
+                            	<select class="form-control pl-3" id="tinh" onchange="print_quan('quan',this.selectedIndex);" name="tinh" value="<?php echo $row['tinh']?>">
+                                <option selected="selected" value="<?php echo $row['tinh']?>"><?php echo $row['tinh']?></option>	
                             	</select>
-            </div>
-           	<div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
-                </div>
-                <input type="text" class="form-control pl-4" placeholder="Quận/Huyện">
-                <label for="selectQuan">Quận / huyện</label>
-                            	<select class="form-control pl-4" id="selectQuan">
-                                	<option value="">Quận 1</option>
-                               		<option value="">Quận 3</option>
-                               	 	<option value="">Quận 4</option>
-                                	<option value="">Quận 5</option>
-                                	<option value="">Quận 6</option>
-                                	<option value="">Quận 7</option>
-                                	<option value="">Quận 8</option>
-                                	<option value="">Quận 10</option>
-                                    <option value="">Quận 11</option>
-                                    <option value="">Quận 12</option>
-                                    <option value="">TP.Thủ Đức</option>
-                                    <option value="">Quận Gò Vấp</option>
-                                    <option value="">Quận Bình Thạnh</option>
-                                    <option value="">Quận Bình Tân</option>
-                                    <option value="">Quận Tân Bình</option>
-                                    <option value="">Quận Phú Nhuận</option>
-                                    <option value="">Quận Tân Phú</option>
-                                    <option value="">H.Hóc Môn</option>
-                                    <option value="">H.Củ Chi</option>
-                                    <option value="">H.Cần Giờ</option>
-                                    <option value="">H.Bình Chánh</option>
-                                    <option value="">H.Nhà Bè</option>
+                            </div>
+                            <!-- ~Quận/Huyện~ -->
+                            <div class="col">
+                            	<select class="form-control pl-3" id="quan" onchange="print_phuong('phuong',this.selectedIndex);" name="quan" value="<?php echo $row['quan']?>">
+                                <option selected="selected" value="<?php echo $row['quan']?>"><?php echo $row['quan']?></option>	
+                            </select>
+                            </div>
+                            <!-- ~Phường/Xã~ -->
+                            <div class="col">
+                            	<select class="form-control pl-3" id="phuong" name="phuong" value="<?php echo $row['phuong']?>">
+                                <option selected="selected" value="<?php echo $row['phuong']?>"><?php echo $row['phuong']?></option>	
                             	</select>
-            </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+                            </div>
+        </div>
+            <!-- Địa chỉ -->
+            <div class="row col-12">
+                <div class="col-3">
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Phường/Xã">
-                <label for="selectPhuong">Phường / xã</label>
-                            	<select class="form-control pl-4" id="selectPhuong">
-                                	<option value="">Phường 1</option>
-                                	<option value="">Phường 2</option>
-                                	<option value="">Phường 3</option>
-                                    <option value="">Phường 4</option>
-                                    <option value="">Phường 5</option>
-                                    <option value="">Phường 6</option>
-                                    <option value="">....</option>
-                            	</select>
-            </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4" placeholder="Địa chỉ bệnh viện" value="<?php echo $row['diachi']?>" name="diachi" id="diachi">
+                    </div>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Số diện thoại">
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+            <!-- phone -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Số điện thoại</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Email">
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4" value="<?php echo $row['sodienthoai']?>" name="sodienthoai" id="sodienthoai">
+                    </div>
+                </div>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+            <!-- email -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Email</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Số tầng">
-                <label for="selectSotang">Số tầng</label>
-                            	<select class="form-control pl-4" id="selectSotang">
-                                	<option value="">Tầng 1</option>
-                                	<option value="">Tầng 2</option>
-                                	<option value="">Tầng 3</option>
-                                    <option value="">Tầng 4</option>
-                                    <option value="">Tầng 5</option>
-                            	</select>
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4"value="<?php echo $row['email']?>" name="email" id="email">
+                    </div>
+                </div>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+            <!-- Tầng -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Tầng</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Số BN tiếp nhận">
+                <div class="col">
+                    <div class="input-group form-group">
+                        <select class="form-control pl-4" id="selectSotang" name="tang">
+                        <option value="<?php echo $row['tang']?>"><?php echo "Tầng"." ".$row['tang']?></option>
+                            <option value="0">Tầng 0</option>
+                            <option value="1">Tầng 1</option>
+                            <option value="2">Tầng 2</option>
+                            <option value="3">Tầng 3</option>
+                            <option value="4">Tầng 4</option>
+                            <option value="5">Tầng 5</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+            <!-- tiếp nhận -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Số bệnh nhân tiếp nhận</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Số bệnh nhân đang điều trị">
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4"  value="<?php echo $row['sobenhnhantiepnhan']?>" name="sobenhnhantiepnhan" id="sobenhnhantiepnhan">
+                    </div>
+                </div>
             </div>
-            <div class="input-group form-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"></span>
+            <!-- Điều trị -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Số bệnh nhân đang điều trị</span>
                 </div>
-                <input type="text" class="form-control pl-4" placeholder="Số BN có thể tiếp nhận thêm">
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4"  value="<?php echo $row['sobenhnhandatiepnhan']?>" name="sobenhnhandatiepnhan" id="sobenhnhandatiepnhan">
+                    </div>
+                </div>
+            </div>
+            <!-- Tiếp nhận thêm -->
+            <div class="row col-12">
+                <div class="col-3">
+                    <span class="">Số BN có thể tiếp nhận thêm</span>
+                </div>
+                <div class="col">
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control pl-4"  value="<?php echo $row['sobenhnhancothetiepnhan']?>" name="sobenhnhancothetiepnhan" id="sobenhnhancothetiepnhan">
+                    </div>
+                </div>
             </div>
             <div class="d-flex justify-content-center pr-2">
-                <button type="submit" class="btn btn-primary"> Cập nhật </button>
+                <button type="submit" class="btn btn-primary" name="Capnhatbenhvien"> Cập nhật bệnh viện </button>
             </div>
+            <?php
+		}
+			?>
         </form>
     </div>
 </div>
+<script language="javascript">
+                        print_tinh("tinh");
+                    </script>

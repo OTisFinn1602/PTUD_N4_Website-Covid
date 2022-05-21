@@ -41,7 +41,7 @@ ob_start();
 </script>
 <div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
-        <div class="col-lg-10 center">
+        <div class="col-lg-6 center bg-light py-5">
             <h4>TƯ VẤN</h4>
             <p class="d-flex justify-content-center h-100">Hệ thống tư vấn viên GFCOVID-19</p>
             <?php
@@ -59,10 +59,11 @@ ob_start();
             $p = new controlHTBN();
             $idBSTV = $p->getBSTV($a);
             $rowIdBSTV = mysqli_fetch_assoc($idBSTV);
+            $idbs = $rowIdBSTV['id_bs'];
             //
             include_once("Controller/cBacSiTuVan.php");
             $p = new controlBSTV();
-            $tenBSTV = $p->getBSTV($a);
+            $tenBSTV = $p->getBSTV($idbs);
             $rowBSTV = mysqli_fetch_assoc($tenBSTV);
             ?>
             <?php
@@ -77,39 +78,48 @@ ob_start();
             }
             if ($tblNDTV) {
                 if (mysqli_num_rows($tblNDTV) > 0) {
-                    while ($row = mysqli_fetch_assoc($tblNDTV)) {
+                    while ($rownd = mysqli_fetch_assoc($tblNDTV)) {
                         if ($_SESSION['chucvu'] == 1 || $_SESSION['chucvu'] == 2) {
-                            echo '<div class="row my-2">';
-                            echo '<div class="col">';
-                            echo '<span class="bg-light p-2 my-2" style="line-height: 40px; border-radius: 5px">';
-                            echo $row['noidung'];
-                            echo '</span>';
-                            echo '</div>';
-                            echo '</div>';
+                            if ($rownd['traloi'] != null) {
+                                echo '<div class="row my-2">';
+                                echo '<div class="col">';
+                                echo '<span class="bg-info float-right p-2 my-2 text-white" style="line-height: 40px; border-radius: 5px">';
+                                echo $rownd['traloi'];
+                                echo '</span>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
                             // 
-                            echo '<div class="row my-2">';
-                            echo '<div class="col">';
-                            echo '<span class="bg-info p-2 my-2 text-white float-right" style="line-height: 20px; border-radius: 5px">';
-                            echo $row['noidung'];
-                            echo '</span>';
-                            echo '</div>';
-                            echo '</div>';
-                        } else {
-                            echo '<div class="row my-2">';
-                            echo '<div class="col">';
-                            echo '<span class="bg-info p-2 my-2 float-right text-white" style="line-height: 40px; border-radius: 5px">';
-                            echo $row['noidung'];
-                            echo '</span>';
-                            echo '</div>';
-                            echo '</div>';
+                            if ($rownd['cauhoi'] != null) {
+                                echo '<div class="row my-2">';
+                                echo '<div class="col">';
+                                echo '<span class="bg-light float-left p-2 my-2 border border-primary text-dark" style="line-height: 20px; border-radius: 5px">';
+                                echo $rownd['cauhoi'];
+                                echo '</span>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        }
+                        if ($_SESSION['chucvu'] == 0) {
+                            if ($rownd['cauhoi'] != null) {
+                                echo '<div class="row my-2">';
+                                echo '<div class="col">';
+                                echo '<span class="bg-info p-2 my-2 float-right text-white" style="line-height: 40px; border-radius: 5px">';
+                                echo $rownd['cauhoi'];
+                                echo '</span>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
                             // 
-                            echo '<div class="row my-2">';
-                            echo '<div class="col">';
-                            echo '<span class="bg-light p-2 my-2" style="line-height: 20px; border-radius: 5px">';
-                            echo $row['noidung'];
-                            echo '</span>';
-                            echo '</div>';
-                            echo '</div>';
+                            if ($rownd['traloi'] != null) {
+                                echo '<div class="row my-2">';
+                                echo '<div class="col">';
+                                echo '<span class="bg-light float-left p-2 my-2 border border-primary text-dark" style="line-height: 20px; border-radius: 5px">';
+                                echo $rownd['traloi'];
+                                echo '</span>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
                         }
                     }
                 }
@@ -137,22 +147,52 @@ ob_start();
                     <p></p>
 
                     <!-- ~Submit~ -->
-                    <button type="submit" name="submit" class="btn btn-primary KBYT ">Gửi yêu cầu</button>                    
+                    <button type="submit" name="submit" class="btn btn-primary KBYT ">Gửi yêu cầu</button>
                 </form>
                 <?php
                 include_once("Controller/cNoiDungTuVan.php");
                 $p = new controlNDTV();
                 if (isset($_REQUEST['submit'])) {
                     if ($_REQUEST['noidung'] != null) {
-                        $b = 1;
-                        $c = $_REQUEST['noidung'];
-                        $tblNDTV = $p->insertNDTV($a, $b, $c);
-                        if ($tblNDTV) {
-                            echo '<script>alert("Gửi thành công")</script>';
-                            echo header("refresh:0;");
-                        } else {
-                            echo '<script>alert("Gửi thất bại")</script>';
-                            echo header("refresh:0;");
+                        $chucvu = $_SESSION['chucvu'];
+                        switch ($chucvu) {
+                            case 0:
+                                include_once("Controller/cBenhNhan.php");
+                                $pbn = new controlBenhNhan();
+                                $sdt = $_SESSION['tenTK'];
+                                $tblBN = $pbn->getIDBenhNhan($sdt);
+                                $row = mysqli_fetch_assoc($tblBN);
+                                $a = $row['id_benhnhan'];
+                                $c = $_REQUEST['noidung'];
+                                $tblNDTV = $p->insertCH($a, $c);
+                                if ($tblNDTV) {
+                                    header("refresh:0; url='index.php?reply&idBN=" . $a . "'");
+                                } else {
+                                    echo '<script>alert("Gửi thất bại")</script>';
+                                    echo header("refresh:0; url='index.php?reply&idBN=" . $a . "'");
+                                }
+                            break;
+                            case 2:
+                                $sdt = $_SESSION['tenTK'];
+                                include_once("Controller/cTaiKhoan.php");
+                                $ptk = new controlAccount();
+                                $tblTK = $ptk->getId($sdt);
+                                $rowtk = mysqli_fetch_assoc($tblTK);
+                                $id = $rowtk['id_taikhoan'];
+                                include_once("Controller/cBacSiTuVan.php");
+                                $pbstv = new controlBSTV();
+                                $tblBSTV = $pbstv->getIDBSTV($id);
+                                $row = mysqli_fetch_assoc($tblBSTV);
+                                $b = $row['id_bs'];
+                                $c = $_REQUEST['noidung'];
+                                $tblNDTV = $p->insertTL($a, $b, $c);
+                                if ($tblNDTV) {
+                                    header("refresh:0; url='BenhVien.php?reply&idBN=" . $a . "'");
+                                } else {
+                                    echo '<script>alert("Gửi thất bại")</script>';
+                                    echo header("refresh:0; url='BenhVien.php?reply&idBN=" . $a . "'");
+                                }
+                            break;
                         }
                     }
                 }

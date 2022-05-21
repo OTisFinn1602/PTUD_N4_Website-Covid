@@ -14,7 +14,7 @@
                             <li class="nav-item">
                                 <a href="index.php" class="nav-link text-white">Trang chủ</a>
                             </li>';
-                if ($_SESSION['chucvu'] == 1) {
+                if ($_SESSION['chucvu'] == 1) {                    
                     echo '<li class="nav-item">
                                     <a href="admin.php" class="nav-link text-white">Admin</a>
                                 </li>

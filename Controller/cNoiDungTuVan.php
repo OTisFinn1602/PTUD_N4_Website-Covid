@@ -6,9 +6,20 @@
             $tblNDTV = $p->SelectNoiDungTuVan($a);
             return $tblNDTV;
         }
-        function insertNDTV($a, $b, $c){
+        // 
+        function insertCH($a, $c){
             $p = new modelNoiDungTuVan();
-            $tblNDTV = $p->InsertNoiDungTuVan($a, $b, $c);
+            $tblNDTV = $p->Insertcauhoi($a, $c);
+            return $tblNDTV;
+        }
+        function insertTL($a, $b, $c){
+            $p = new modelNoiDungTuVan();
+            $tblNDTV = $p->Inserttraloi($a, $b, $c);
+            return $tblNDTV;
+        }
+        function DeleteNDTV($a){
+            $p = new modelNoiDungTuVan();
+            $tblNDTV = $p->DeleteNoiDungTuVan($a);
             return $tblNDTV;
         }
     }

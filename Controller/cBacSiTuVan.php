@@ -6,5 +6,11 @@
             $tblBSTV = $p->SelectBSTV($a);
             return $tblBSTV;
         }
+
+        function getIDBSTV($a){
+            $p = new modelBSTV();
+            $tblBSTV = $p->SelectIDBSTV($a);
+            return $tblBSTV;
+        }
     }
 ?>

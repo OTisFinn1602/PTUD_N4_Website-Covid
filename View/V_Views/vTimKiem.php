@@ -7,13 +7,13 @@
 
                 <li class="menu-title">Search</li>
                 <li>
-                    <a href="index.php?search">
+                    <a href="index.php?search&TKBNTT">
                         <i class="fas fa-search"></i>
                         <span>Tìm kiếm bệnh nhân</span>
                     </a>
                 </li>
                 <li>
-                    <a href="index.php?search&TKBV">
+                    <a href="index.php?search&TKBVTT">
                         <i class="fas fa-search"></i>
                         <span>Tìm kiếm bệnh viện</span>
                     </a>
@@ -28,19 +28,17 @@
         <div class="content">
 
             <!-- Start container-fluid -->
-            <div class="container-fluid">
-                <?php
-                if (isset($_REQUEST['TKBV'])) {
-                    echo 'TKBV';
-                    // include_once "View/V_Views/VTKBV.php";
-                } elseif (isset($_REQUEST['TKBN'])) {
+           <div class="container-fluid">
+                <!-- <?php
+                if (isset($_REQUEST['TKBVTT'])) {
+                    include_once "View/V_Views/VTKBVTT.php";
+                }elseif(isset($_REQUEST['TKBNTT']))
+                {
                     // include_once "View/V_Views/VTKBN.php";
-                    echo 'TKBN';
-                } else {
-                    echo 'Trang tìm kiếm';
+                    include_once "View/V_Views/VTKBNTT.php";
                 }
                 ?>
-
+            -->
             </div>
         </div>
     </div>

@@ -8,14 +8,14 @@ $tblHTBN = $p->getAllHTBN();
         <div class="col-lg-12">
             <h4>Hỗ trợ chăm sóc bệnh nhân</h4>
             <?php
-            if ($tblHTBN) {                
+            if ($tblHTBN) {
                 if (mysqli_num_rows($tblHTBN) > 0) {
                     $stt = 0;
                     echo '
                     <table class="table table-bordered table-light table-hover">
                         <thead class="thead-dark">
                             <tr class="text-align-center">
-                                <th scope="col">STT</th>
+                                <th scope="col">Mã Phiếu</th>
                                 <th scope="col">Mã Bệnh Nhân</th>
                                 <th scope="col">Tên Bệnh Nhân</th>
                                 <th scope="col">Nội Dung</th>
@@ -33,32 +33,36 @@ $tblHTBN = $p->getAllHTBN();
                         $p = new controlBenhNhan();
                         $tblBenhNhan = $p->getBenhNhan($a);
                         $rowBN = mysqli_fetch_assoc($tblBenhNhan);
+                        if($checkTN != $rowBN['id_benhnhan']){
                         echo '
-                        <th scope="row">' . $stt . '</th>
+                        <td>' . $row['id_phieutv'] . '</td>
                         <td>' . $rowBN['id_benhnhan'] . '</td>
                         <td>' . $rowBN['hovaten'] . '</td>
-                        <td>' . $row['noidung'] . '</td>
-                        <td><a href="BenhVien.php?reply&idBN='.$row["idbenhnhan"].'">trả lời</a></td>
-                        <td><a href="BenhVien.php?del&idBN='.$row["idbenhnhan"].'">xóa</a></td>
-                        ';
-                        $stt++;
+                        <td>Tin nhắn chờ ...</td>
+                        <td><a href="BenhVien.php?reply&idBN=' . $row["idbenhnhan"] . '">trả lời</a></td>
+                        <td><a href="BenhVien.php?del&idP=' . $row["id_phieutv"] . '">xóa</a></td>
+                        ';}
+                        $stt++;                        
                         if ($stt % 1 == 0) {
                             echo '</tr>';
                             $stt = 0;
+                            $checkTN = $rowBN['id_benhnhan'];
                         }
                     }
                     echo '
                         </tbody>
                         </table>
                     ';
-                }else{
+                } else {
                     echo '0 Result';
                 }
-            }else{
+            } else {
                 echo 'ERROR';
             }
-
+            
             ?>
         </div>
     </div>
 </div>
+<?php
+?>

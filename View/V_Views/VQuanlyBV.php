@@ -1,3 +1,10 @@
+
+<?php
+include("modules/comfig.php");
+$sql_VQuanlyBV="select * from tbl_benhvien order by id_benhvien desc";
+$query_VQuanlyBV=mysqli_query($con,$sql_VQuanlyBV);
+?>
+
 <div class="container-fluid">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
         <div class="col-lg-12">
@@ -17,94 +24,40 @@
                         <th scope="col">Số điện thoại</th>
                         <th scope="col">Email</th>
                         <th scope="col">Số tầng</th>
-                        <th scope="col">Số BN tiếp nhận</th>
-                        <th scope="col">Số Bn đan điều trị</th>
-                        <th scope="col">Số Bn có thể tiếp nhận thêm</th>
+                        <th scope="col">Số bệnh nhân tiếp nhận</th>
+                        <th scope="col">Số bệnh nhân đang điều trị</th>
+                        <th scope="col">Số bệnh nhân có thể tiếp nhận thêm</th>
+                        <th scope="col">Lựa chọn</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php
+				$i=0;
+				while($row=mysqli_fetch_array($query_VQuanlyBV))
+				{
+					$i++;
+                ?>
                     <tr class="font-weight-bold">
-                        <th scope="row">1</th>
-                        <td>Bệnh viện quân y 175</td>
-                        <td>BV01</td>
-                        <td>786, Nguyễn Kiệm, p3, Gò Vấp, TP.Hồ Chí Minh</td>
-                        <td>012 4321 345</td>
-                        <td>benhvien175@gmail.com</td>
-                        <td>Tầng 1</td>
-                        <td>700</td>
-                        <td>200</td>
-                        <td>500</td>
+                        <th scope="row"><?php echo $i;?></th>
+                        <td><?php echo $row['ten'];?></td>
+                        <td><?php echo $row['mabenhvien'];?></td>
+                        <td><?php echo $row['diachi'];?></td>
+                        <td><?php echo $row['sodienthoai'];?></td>
+                        <td><?php echo $row['email'];?></td>
+                        <td><?php echo $row['tang'];?></td>
+                        <td><?php echo $row['sobenhnhantiepnhan'];?></td>
+                        <td><?php echo $row['sobenhnhandatiepnhan'];?></td>
+                        <td><?php echo $row['sobenhnhancothetiepnhan'];?></td>
                         <td>
-                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
-
+                            <a href="admin.php?CNBV&idbenhvien=<?php echo $row['id_benhvien'];?>">Cập nhật</a> || <a href="./View/V_Views/modules/xulyBV.php?idbenhvien=<?php echo $row['id_benhvien'];?>">Xóa</a>
                         </td>
                     </tr>
-                    <tr class="font-weight-bold">
-                        <th scope="row">2</th>
-                        <td>Bệnh viện Chợ Rẫy</td>
-                        <td>BV02</td>
-                        <td>201B Nguyễn Chí Thanh, Phường 12, Quận 5, Thành phố Hồ Chí Minh</td>
-                        <td>012 4321 345</td>
-                        <td>benhvienchoray@gmail.com</td>
-                        <td>Tầng 2</td>
-                        <td>700</td>
-                        <td>340</td>
-                        <td>360</td>
-                        <td>
-                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
-
-                        </td>
-                    </tr>
-                     <tr class="font-weight-bold">
-                        <th scope="row">3</th>
-                        <td>Bệnh viện Thống Nhất</td>
-                        <td>BV03</td>
-                        <td>Số 1, Lý Thường Kiệt, Phường 7, Quận Tân Bình, Tp.HCM.</td>
-                        <td>012 4321 345</td>
-                        <td>benhvienthongnhat@gmail.com</td>
-                        <td>Tầng 3</td>
-                        <td>1000</td>
-                        <td>900</td>
-                        <td>100</td>
-                        <td>
-                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
-
-                        </td>
-                    </tr>
-                    <tr class="font-weight-bold">
-                        <th scope="row">4</th>
-                        <td>Bệnh viện Nhân dân 115</td>
-                        <td>BV04</td>
-                        <td>527 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh</td>
-                        <td>012 4321 345</td>
-                        <td>benhvien115@gmail.com</td>
-                        <td>Tầng 4</td>
-                        <td>1000</td>
-                        <td>900</td>
-                        <td>100</td>
-                        <td>
-                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
-
-                        </td>
-                    </tr>
-                    <tr class="font-weight-bold">
-                        <th scope="row">5</th>
-                        <td>Bệnh viện Hùng Vương</td>
-                        <td>BV05</td>
-                        <td>Số 128 Hồng Bàng, Phường 12, Quận 5, Hồ Chí Minh, Vietnam.</td>
-                        <td>012 4321 345</td>
-                        <td>benhvienhungvuong@gmail.com</td>
-                        <td>Tầng 5</td>
-                        <td>450</td>
-                        <td>210</td>
-                        <td>240</td>
-                        <td>
-                            <a href="admin.php?CNBV">Cập nhật</a> || <a href="admin.php?XBV">Xóa</a>
-
-                        </td>
+                  <?php
+				}
+				  ?>
+                    
                 </tbody>
             </table>
-            
         </div>
     </div>
 </div>

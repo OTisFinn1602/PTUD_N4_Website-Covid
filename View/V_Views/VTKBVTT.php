@@ -58,7 +58,7 @@ function validateForm1() {
 </script>
 <div class="container-fluid" style="height: 350px;">
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
-        <form class="timkiem" action="admin.php?HTTKBV" method="post" onsubmit="return validateForm()">
+        <form class="timkiem" action="index.php?search&HTTKBV" method="post" onsubmit="return validateForm()">
             <h4 style="text-align:center">Tìm Kiếm Thông Tin Bệnh Viện</h4>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
@@ -68,14 +68,14 @@ function validateForm1() {
             </div>
             
             <div class="d-flex justify-content-xl-center">
-                <button type="submit" class="btn btn-primary" name="timkiembv">Tìm kiếm</button>
+                <button type="submit" class="btn btn-primary" name="timkiemtrangchu">Tìm kiếm</button>
             </div>
         </form>
     </div>
 </div>
-<div class="container-loc" style="height: 500px; margin-left:33%;margin-top:-110px;">
+<div class="container-loc" style="height: 500px; margin-left:36%;margin-top:-110px;">
 <div class="pag-login d-flex align-items-center justify-content-center">
-<form class="timkiem col-12" action="admin.php?HTTKBV" method="post" onsubmit="return validateForm1()">
+<form class="timkiem col-12" action="index.php?HTTKBV" method="post" onsubmit="return validateForm1()">
                         <div class="col-5">
                             <label for="tinh">Tỉnh thành</label>
                             <select class="form-control pl-4" onchange="print_quan('quan',this.selectedIndex);" id="tinh" name="tinh">
@@ -89,7 +89,7 @@ function validateForm1() {
                             </select>
                         </div>
                         <div class="col-2" style="margin-top:33px;margin-left:80px;">
-                        <button type="submit" class="btn btn-success" name="loc">Lọc</button>
+                        <button type="submit" class="btn btn-success" name="loctrangchu">Lọc</button>
                         </div>
 </form>
    </div>

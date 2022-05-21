@@ -21,15 +21,5 @@
             $tblAccount = $p->SelectName($a);
             return $tblAccount;
         }
-        function getDem($a){
-            $p = new modelAccount();
-            $tblAccount = $p->SelectDem($a);
-            return $tblAccount;
-        }
-        function UpdateDem($a, $dem){
-            $p = new modelAccount();
-            $tblAccount = $p->UpdateDem($a, $dem);
-            return $tblAccount;
-        }
     }
 ?>

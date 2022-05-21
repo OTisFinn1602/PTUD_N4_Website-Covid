@@ -9,13 +9,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="./images/1.jpg" height="700" alt="First slide">
+                        <img class="d-block w-100" src="./images/1.jpg" height="500" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./images/2.jpg" height="700" alt="Second slide">
+                        <img class="d-block w-100" src="./images/2.jpg" height="500" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="./images/3.png" height="700" alt="Third slide">
+                        <img class="d-block w-100" src="./images/3.png" height="500" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -54,26 +54,28 @@
                     <span class="d-flex justify-content-center font-weight-bold p-1">Tìm kiếm</span>
                 </a>
             </div>
+            <?php
+            include_once("Controller/cBenhNhan.php");
+            $p = new controlBenhNhan;
+            $a = $_SESSION['tenTK'];
+            $tblID = $p->getIDBenhNhan($a);
+            $row = mysqli_fetch_assoc($tblID);
+            $idBN = $row['id_benhnhan'];
+            ?>
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
-                <a href="index.php?YCCV" class="nav-link text-white">
+                <a href="index.php?YCCV&idBN=<?php echo $idBN ?>" class="nav-link text-white">
                     <div class="icon d-flex justify-content-center my-2">
                         <i class="fas fa-procedures fa-2x"></i>
                     </div>
                     <span class="d-flex justify-content-center font-weight-bold p-1">Yêu cầu chuyển viện</span>
                 </a>
-            </div>
-            <?php
-                include_once ("Controller/cTaiKhoan.php");
-                $p = new controlAccount();
-                $a = $_SESSION['tenTK'];
-                $tblAccount = $p->getId($a);
-            ?>
+            </div>            
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
                 <a href="index.php?reply&idBN=<?php echo $idBN ?>" class="nav-link text-white">
-                <div class="icon d-flex justify-content-center my-2">
-                <i class="fas fa-comments fa-2x"></i>
-                </div>
-                <span class="d-flex justify-content-center font-weight-bold p-1">Tư Vấn</span>
+                    <div class="icon d-flex justify-content-center my-2">
+                        <i class="fas fa-comments fa-2x"></i>
+                    </div>
+                    <span class="d-flex justify-content-center font-weight-bold p-1">Tư Vấn</span>
                 </a>
             </div>
             <!-- <div class="col p-2 m-2 bg-info" style="height: 100px;">
@@ -83,10 +85,11 @@
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
             <div class="col p-2 m-2 bg-info" style="height: 100px;"></div> -->
         </div>
+        <!-- <h2>abc</h2>
         <div class="row col-12">
             <div class="col bg-success p-2 m-2" style="height: 500px;"></div>
             <div class="col bg-success p-2 m-2" style="height: 500px;"></div>
             <div class="col bg-success p-2 m-2" style="height: 500px;"></div>
-        </div>
+        </div> -->
     </div>
 </div>

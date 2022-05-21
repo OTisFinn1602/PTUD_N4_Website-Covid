@@ -1,5 +1,6 @@
 <?php
 include_once "View/V_Global/head.php";
+if($_SESSION['dntc'] == true){
 ?>
 
 <body>
@@ -205,14 +206,6 @@ include_once "View/V_Global/head.php";
                         </a>
                     </li>
 
-                    <!-- <li>
-                        <a href="admin.php?QLBN">
-                            <i class="ti-paint-bucket"></i>
-                            <span> Quản lý bệnh nhân </span>
-                            <span class="badge badge-primary float-right">11</span>
-                        </a>
-                    </li> -->
-
                     <li>
                         <a href="javascript: void(0);">
                             <i class="ti-light-bulb"></i>
@@ -223,16 +216,8 @@ include_once "View/V_Global/head.php";
                             <li><a href="admin.php?QLBN">Quản lý bệnh nhân</a></li>
                             <li><a href="admin.php?QLBV">Quản lý bệnh viện</a></li>
                             <li><a href="admin.php?QLTK">Quản lý tài khoản</a></li>
-                            <!-- <li><a href="components-widgets.html">Widgets</a></li> -->
                         </ul>
                     </li>
-
-                    <!-- <li>
-                        <a href="typography.html">
-                            <i class="ti-spray"></i>
-                            <span> Typography </span>
-                        </a>
-                    </li> -->
 
                     <li>
                         <a href="javascript: void(0);">
@@ -245,109 +230,6 @@ include_once "View/V_Global/head.php";
                             <li><a href="admin.php?TKBV">Tìm kiếm bệnh viện</a></li>
                         </ul>
                     </li>
-
-                    <!-- <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-menu-alt"></i>
-                            <span> Tables </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="tables-basic.html">Basic Tables</a></li>
-                            <li><a href="tables-advanced.html">Advanced Tables</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="charts.html">
-                            <i class="ti-pie-chart"></i>
-                            <span> Charts </span>
-                            <span class="badge badge-primary float-right">5</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="maps.html">
-                            <i class="ti-location-pin"></i>
-                            <span> Maps </span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-files"></i>
-                            <span> Pages </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="pages-login.html">Login</a></li>
-                            <li><a href="pages-register.html">Register</a></li>
-                            <li><a href="pages-forget-password.html">Forget Password</a></li>
-                            <li><a href="pages-lock-screen.html">Lock-screen</a></li>
-                            <li><a href="pages-blank.html">Blank page</a></li>
-                            <li><a href="pages-404.html">Error 404</a></li>
-                            <li><a href="pages-confirm-mail.html">Confirm Mail</a></li>
-                            <li><a href="pages-session-expired.html">Session Expired</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-widget"></i>
-                            <span> Extra Pages </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-
-                            <li><a href="extras-timeline.html">Timeline</a></li>
-                            <li><a href="extras-invoice.html">Invoice</a></li>
-                            <li><a href="extras-profile.html">Profile</a></li>
-                            <li><a href="extras-calendar.html">Calendar</a></li>
-                            <li><a href="extras-faqs.html">FAQs</a></li>
-                            <li><a href="extras-pricing.html">Pricing</a></li>
-                            <li><a href="extras-contacts.html">Contacts</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-layout"></i>
-                            <span> Layouts </span>
-                            <span class="badge badge-danger badge-pill float-right">New</span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="layouts-horizontal.html">Horizontal</a></li>
-                            <li><a href="layouts-dark-sidebar.html">Dark Sidebar</a></li>
-                            <li><a href="layouts-small-sidebar.html">Small Sidebar</a></li>
-                            <li><a href="layouts-sidebar-collapsed.html">Sidebar Collapsed</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-share"></i>
-                            <span> Multi Level </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level nav" aria-expanded="false">
-                            <li>
-                                <a href="javascript: void(0);">Level 1.1</a>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" aria-expanded="false">Level 1.2
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-third-level nav" aria-expanded="false">
-                                    <li>
-                                        <a href="javascript: void(0);">Level 2.1</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript: void(0);">Level 2.2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li> -->
                 </ul>
 
             </div>
@@ -370,18 +252,32 @@ include_once "View/V_Global/head.php";
                         include_once "View/V_Views/ListTK.php";
                     } elseif (isset($_REQUEST['TKBV'])) {
                         include_once "View/V_Views/VTKBV.php";
+                    } elseif (isset($_REQUEST['HTTKBN'])) {
+                        include_once "View/V_Views/modules/xulyTKBN.php";
+                    } elseif (isset($_REQUEST['HTCTTK'])) {
+                        include_once "View/V_Views/modules/xulyHTCTTK.php";
+                    } elseif (isset($_REQUEST['HTTKBV'])) {
+                        include_once "View/V_Views/modules/xulyTKBV.php";
+                    } elseif (isset($_REQUEST['HTCTTKBV'])) {
+                        include_once "View/V_Views/modules/xulyHTCTTKBV.php";
                     } elseif (isset($_REQUEST['TKBN'])) {
                         include_once "View/V_Views/VTKBN.php";
                     } elseif (isset($_REQUEST['CNTK'])) {
                         include_once "View/V_Views/CapnhatTK.php";
+                    } elseif (isset($_REQUEST['XNYCCV'])) {
+                        include_once "View/V_Views/XacnhanCV.php";
                     } elseif (isset($_REQUEST['ListTK'])) {
                         include_once "View/V_Views/ListTK.php";
+                    } elseif (isset($_REQUEST['VQuanlyBV'])) {
+                        include_once "View/V_Views/VQuanlyBV.php";
                     } elseif (isset($_REQUEST['AddTK'])) {
                         include_once "View/V_Views/TaiKhoanAdd.php";
                     } elseif (isset($_REQUEST['AddBV'])) {
                         include_once "View/V_Views/BenhVienAdd.php";
-                    } elseif (isset($_REQUEST['UpBV'])) {
-                        include_once "View/V_Views/CapnhatTK.php";
+                    } elseif (isset($_REQUEST['CNBV'])) {
+                        include_once "View/V_Views/CapnhatBV.php";
+                    } elseif (isset($_REQUEST['CNBN'])) {
+                        include_once "View/V_Views/CapnhatBN.php";
                     } else {
                         include_once "View/V_Views/vAdmin.php";
                     }
@@ -400,59 +296,6 @@ include_once "View/V_Global/head.php";
             </div>
         </div>
     </div>
-    <!-- END wrapper -->
-
-
-    <!-- Right Sidebar -->
-    <!-- <div class="right-bar">
-<div class="rightbar-title">
-    <a href="javascript:void(0);" class="right-bar-toggle float-right">
-        <i class="mdi mdi-close"></i>
-    </a>
-    <h5 class="font-16 m-0 text-white">Theme Customizer</h5>
-</div>
-<div class="slimscroll-menu">
-
-    <div class="p-4">
-        <div class="alert alert-warning" role="alert">
-            <strong>Customize </strong> the overall color scheme, layout, etc.
-        </div>
-        <div class="mb-2">
-            <img src="assets\images\layouts\light.png" class="img-fluid img-thumbnail" alt="">
-        </div>
-        <div class="custom-control custom-switch mb-3">
-            <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked="">
-            <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
-        </div>
-
-        <div class="mb-2">
-            <img src="assets\images\layouts\dark.png" class="img-fluid img-thumbnail" alt="">
-        </div>
-        <div class="custom-control custom-switch mb-3">
-            <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsstyle="assets/css/bootstrap-dark.min.css" data-appstyle="assets/css/app-dark.min.css">
-            <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
-        </div>
-
-        <div class="mb-2">
-            <img src="assets\images\layouts\rtl.png" class="img-fluid img-thumbnail" alt="">
-        </div>
-        <div class="custom-control custom-switch mb-5">
-            <input type="checkbox" class="custom-control-input theme-choice" id="rtl-mode-switch" data-appstyle="assets/css/app-rtl.min.css">
-            <label class="custom-control-label" for="rtl-mode-switch">RTL Mode</label>
-        </div>
-
-        <a href="https://1.envato.market/EK71X" class="btn btn-danger btn-block mt-3" target="_blank"><i class="mdi mdi-download mr-1"></i> Download Now</a>
-    </div>
-</div>  -->
-    <!-- end slimscroll-menu-->
-    <!-- /Right-bar -->
-
-    <!-- Right bar overlay-->
-    <!-- <div class="rightbar-overlay"></div>
-
-<a href="javascript:void(0);" class="right-bar-toggle demos-show-btn">
-<i class="mdi mdi-settings-outline mdi-spin"></i> &nbsp;Choose Demos
-</a> -->
 
 
 </body>
@@ -473,3 +316,8 @@ include_once "View/V_Global/head.php";
 <script src="./css/assets/js/app.min.js"></script>
 
 </html>
+<?php
+}else{
+    include_once"View/V_Views/VDangNhap.php";
+}
+?>
