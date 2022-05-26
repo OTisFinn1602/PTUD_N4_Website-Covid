@@ -30,6 +30,13 @@
                     </div>';
                 if ($_SESSION['dntc'] == true) {
                     echo '<a href="index.php?Logout" class="nav-item nav-link text-white">Đăng xuất</a>';
+                    if ($_SESSION['chucvu'] == 1) {
+                        echo '<img src="images/imgavatar.jpg" alt="" class="avatar-md rounded-circle">';
+                    } elseif ($_SESSION['chucvu'] == 2) {
+                        echo '<img src="images/logoBV.png" alt="" class="avatar-md rounded-circle">';
+                    } else{
+                        echo '<img src="images/user-logo.png" alt="" class="avatar-md rounded-circle">';
+                    }
                 } else {
                     echo '<a href="index.php?Login" class="nav-item nav-link text-white">Đăng nhập</a>';
                 }
