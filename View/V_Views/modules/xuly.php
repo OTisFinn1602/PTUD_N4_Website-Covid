@@ -51,9 +51,11 @@ if (isset($_POST['khaibaoyte'])) {
     <div style="text-align:center">
         <p style="color:Red">
             Trân trọng cảm ơn quý khách đã hoàn thành việc khai báo y tế</br>
+            <?php if($a != $row['ten']) { ?>
             Mã đăng nhập: <?php echo $sodienthoai ?></br>
             Mật khẩu: 12345678 </br>
             Vui lòng đổi mật khẩu trước khi đăng nhâp</p>
+            <?php } ?>
             <form action="index.php">
                 <button type="submit" class="btn btn-primary">OK</button>
             </form>

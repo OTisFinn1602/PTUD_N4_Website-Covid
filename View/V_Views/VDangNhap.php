@@ -6,6 +6,9 @@
     <div class="pag-login d-flex align-items-center justify-content-center h-100">
         <form class="form_login" action="DNWin.php" method="post">
             <h4>Đăng nhập hệ thống</h4>
+            <?php
+                echo $_SESSION['notierror'];
+            ?>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -51,10 +54,12 @@
                             if($_SESSION['error'] == 4){
                                 echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 60 phút");</script>';
                                 // sleep(3600);
+                                sleep(15);
                             }
                             if($_SESSION['error'] == 5){
                                 echo '<script>alert("Bạn đã nhập sai quá 5 lần. Vui lòng chờ! 1 ngày");</script>';
                                 // sleep(86400);
+                                sleep(20);
                             }
                             echo header("refresh:0; url='index.php?Login'");
                             $_SESSION['dem'] = 5;

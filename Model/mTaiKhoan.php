@@ -48,5 +48,17 @@
                 return false; 
             }
         } 
+
+        function updatePass($a, $b){
+            $p = new clsketnoi();
+            if($p->ketnoiDB($conn)){
+                $string = "UPDATE `nhom4`.`tbl_taikhoan` SET `matkhau` = '$b' WHERE `tbl_taikhoan`.`ten` = '$a' LIMIT 1 ;";
+                $table = mysqli_query($conn, $string);
+                $p->dongketnoi($conn);
+                return $table;
+            }else{
+                return false; 
+            }
+        } 
     }
 ?>

@@ -2,14 +2,28 @@
 session_start();
 include_once "View/V_Global/head.php";
 if ($_SESSION['dntc'] == true) {
+    $myname = $_SESSION['tenTK'];
 ?>
 
     <body>
         <div id="wrapper">
             <div class="navbar-custom">
-                
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+                    <li class="notification-list">
+                        <a class="nav-link nav-user mr-0">
+                            <?php if ($_SESSION['chucvu'] == 1) { ?>
+                                <img src="images/imgavatar.jpg" alt="" class="rounded-circle">
+                            <?php } elseif ($_SESSION['chucvu'] == 2) { ?>
+                                <img src="images/logoBV.png" alt="" class="rounded-circle">
+                            <?php } ?>
+                            <span class="ml-1">
+                                <?php echo $myname ?>
+                                <i class="fas fa-caret-down"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
 
-                <!-- LOGO -->
                 <div class="logo-box">
                     <a href="index.php" class="logo text-center logo-dark">
                         <span class="logo-lg">
@@ -21,22 +35,19 @@ if ($_SESSION['dntc'] == true) {
                     </a>
                 </div>
 
-                
+
             </div>
             <div class="left-side-menu">
-
 
                 <div class="user-box">
                     <div class="float-left">
                         <img src="images/imgavatar.jpg" alt="" class="avatar-md rounded-circle">
                     </div>
                     <div class="user-info">
-                        <a href="#"><?php echo $_SESSION['tenTK'] ?></a>
+                        <a href="#"><?php echo $myname ?></a>
                         <p class="text-muted m-0">Administrator</p>
                     </div>
                 </div>
-
-                <!--- Sidemenu -->
                 <div id="sidebar-menu">
 
                     <ul class="metismenu" id="side-menu">
@@ -84,13 +95,8 @@ if ($_SESSION['dntc'] == true) {
                     </ul>
 
                 </div>
-                <!-- End Sidebar -->
-
                 <div class="clearfix"></div>
-
-
             </div>
-
             <div class="content-page">
                 <div class="content">
                     <div class="container-fluid">
@@ -153,18 +159,14 @@ if ($_SESSION['dntc'] == true) {
     <script src="./Js/jquery-3.6.0.min.js"></script>
     <script src="./css/bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
     <script src="./css/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
-    <script src="./Js/KBYT_NCT.js"></script>
-    <!--  -->
-    <!-- Vendor js -->
     <script src="./css/assets/js/vendor.min.js"></script>
-
+    
     <script src="./css/assets/libs/morris-js/morris.min.js"></script>
     <script src="./css/assets/libs/raphael/raphael.min.js"></script>
-
+    
     <script src="./css/assets/js/pages/dashboard.init.js"></script>
-
-    <!-- App js -->
     <script src="./css/assets/js/app.min.js"></script>
+    <script src="./Js/KBYT_NCT.js"></script>
 
     </html>
 <?php

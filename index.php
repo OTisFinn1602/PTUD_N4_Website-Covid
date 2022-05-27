@@ -37,6 +37,8 @@ include_once "View/V_Views/modules/comfig.php";
             include_once "View/V_Views/modules/xulyHTCTTKBVTT.php";
         } elseif (isset($_REQUEST['search'])) {
             include_once "View/V_Views/vTimKiem.php";
+        } elseif (isset($_REQUEST['changepass'])) {
+            include_once "View/V_Views/VChangePassword.php";
         } else {
             include_once "View/V_Views/VTrangChu.php";
         }
@@ -83,10 +85,8 @@ include_once "View/V_Views/modules/comfig.php";
 <script src="./css/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./Js/KBYT.js"></script>
 <script type="text/javascript" src="./Js/KBYT_NCT.js"></script>
-<!-- <script type="text/javascript" src="./Js/YCTV1.js"></script>
-<script type="text/javascript" src="./Js/yctvv.js"></script> -->
-<!-- Vendor js -->
 <script src="./css/assets/js/vendor.min.js"></script>
+<script type="text/javascript" src="./Js/onclick.js"></script>
 
 <script src="./css/assets/libs/morris-js/morris.min.js"></script>
 <script src="./css/assets/libs/raphael/raphael.min.js"></script>

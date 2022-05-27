@@ -34,8 +34,6 @@
     <div class="main flex-wrap d-flex justify-content-center">
         <h2>
             ----------------------------------*_*---------------------------------- <br>
-            <!-- <span class="font-weight-bold text-danger text-uppercase">GFCOVID-19</span> <br>
-            <span class="small">Support to receive and treat Covid-19 Patients</span> -->
         </h2>
         <div class="row col-12">
             <div class="col p-2 m-2 bg-info" style="height: 100px;">
@@ -78,18 +76,6 @@
                     <span class="d-flex justify-content-center font-weight-bold p-1">Tư Vấn</span>
                 </a>
             </div>
-            <!-- <div class="col p-2 m-2 bg-info" style="height: 100px;">
-
-            </div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div>
-            <div class="col p-2 m-2 bg-info" style="height: 100px;"></div> -->
         </div>
-        <!-- <h2>abc</h2>
-        <div class="row col-12">
-            <div class="col bg-success p-2 m-2" style="height: 500px;"></div>
-            <div class="col bg-success p-2 m-2" style="height: 500px;"></div>
-            <div class="col bg-success p-2 m-2" style="height: 500px;"></div>
-        </div> -->
     </div>
 </div>

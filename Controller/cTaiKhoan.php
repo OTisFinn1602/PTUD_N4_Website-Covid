@@ -21,5 +21,10 @@
             $tblAccount = $p->SelectName($a);
             return $tblAccount;
         }
+        function updatepass($a, $b){
+            $p = new modelAccount();
+            $tblAccount = $p->updatePass($a, $b);
+            return $tblAccount;
+        }
     }
 ?>

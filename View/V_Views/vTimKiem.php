@@ -27,7 +27,6 @@
     <div class="content-page">
         <div class="content">
 
-            <!-- Start container-fluid -->
            <div class="container-fluid">
            <div class="flex-wrap d-flex justify-content-center mb-3">
     <div class="row col-12 p-0 m-0">

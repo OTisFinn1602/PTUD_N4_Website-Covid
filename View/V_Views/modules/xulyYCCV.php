@@ -1,4 +1,5 @@
 <?php
+echo '<meta charset="UTF-8">';
 include('comfig.php');
 $tang=$_POST['tangcv'];
 $id_benhvien=$_POST['benhvien'];
@@ -6,12 +7,13 @@ $id_benhnhan=$_GET['idbenhnhan'];
 if(isset($_POST['guiyeucau']))
 {
     $sql_yccv="insert into tbl_phieuchuyenvien(id_benhvien,id_benhnhan,tangcv) values('".$id_benhvien."','".$id_benhnhan."','".$tang."')";
-    mysqli_query($con,$sql_yccv);
-    header('location:../../../index.php');
+    mysqli_query($con,$sql_yccv);   
+    echo '<script>alert("Gửi yêu cầu thành công!");</script>'; 
+    // header('location:../../../index.php');
+    echo header("refresh:0; url='../../../index.php'");
 }
 if(isset($_POST['xacnhan']))
 {
-
     $sql_yccv1="update tbl_phieuchuyenvien set xacnhan=1 where id_PCV='$_GET[idPCV]' ";
     $sql_yccv3="select * from tbl_phieuchuyenvien where id_PCV='$_GET[idPCV]' ";
     mysqli_query($con,$sql_yccv3);

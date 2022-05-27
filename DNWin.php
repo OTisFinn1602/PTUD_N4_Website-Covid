@@ -24,12 +24,15 @@ if (isset($_REQUEST["submit"])) {
             $_SESSION['tenTK'] = $tenTK['ten'];
             unset($_SESSION['dem']);
             unset($_SESSION['error']);
+            unset($_SESSION['notierror']);
             echo '<script>alert("Đăng nhập thành công!");</script>';
             echo header("refresh:0; url='index.php'");
         } else {
             $_SESSION['loss'] = true;
             $_SESSION['dem'] -= 1;
-            echo '<script>alert("Đăng nhập thất bại! Tên tài khoản hoặc mật khẩu sai");</script>';
+            $_SESSION['notierror'] = '<div class="alert alert-danger">
+            Đăng nhập thất bại! Tên tài khoản hoặc mật khẩu sai!
+        </div>';
             echo header("refresh:0; url='index.php?Login'");
         }
     }
